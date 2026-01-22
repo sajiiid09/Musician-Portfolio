@@ -2,21 +2,11 @@
 
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { GALLERY_PHOTOS } from '@/lib/assets';
 
-// Real assets
-const ROW_1_IMAGES = [
-  "https://cdn.prod.website-files.com/67d04807565b2b5da857ce4c/67d826e94b6317a3f8e9467e_joshua-davis-VWGLJh8DMhQ-unsplash.avif",
-  "https://cdn.prod.website-files.com/67d04807565b2b5da857ce4c/67f2a8b93fcfae53e5fed041_eugene-chystiakov-Xz6s6CRa9G4-unsplash.avif",
-  "https://img.youtube.com/vi/GvURMQ8m2BA/maxresdefault.jpg",
-  "https://cdn.prod.website-files.com/67d04807565b2b5da857ce4c/67d826e943c1d24be5b45e76_sam-moghadam-Z1dwD5cFEsc-unsplash.avif"
-];
-
-const ROW_2_IMAGES = [
-  "https://cdn.prod.website-files.com/67d04807565b2b5da857ce4c/67f2a9dd3fdd55d2fc797d9d_evgeniy-smersh--rbR4vpN-LU-unsplash.avif",
-  "https://cdn.prod.website-files.com/67d04807565b2b5da857ce4c/67f2a91c86b62a2ae0df5d9a_oleg-brovchenko-Msc61p_9BwA-unsplash.avif",
-  "https://cdn.prod.website-files.com/67d04807565b2b5da857ce4c/67f2a72ba1aa4919ed4bb425_frederick-shaw-GHtZ0tuY1-k-unsplash.avif",
-  "https://img.youtube.com/vi/YVVotFnKHpM/maxresdefault.jpg"
-];
+// Split gallery photos into two rows
+const ROW_1_IMAGES = GALLERY_PHOTOS.slice(0, 5);
+const ROW_2_IMAGES = GALLERY_PHOTOS.slice(5, 10);
 
 const ImageGrid = ({ images }: { images: string[] }) => (
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full min-w-[100vw] lg:min-w-full">
@@ -69,12 +59,12 @@ export default function GalleryMarquee() {
           {/* Loop Set 1: ADDED 'flex-none' to prevent shrinking */}
           <div className="flex min-w-full items-center flex-none">
             {[1, 2, 3, 4].map((item) => (
-              <span 
-                key={item} 
+              <span
+                key={item}
                 className="mx-8 text-6xl md:text-8xl lg:text-9xl font-semibold uppercase tracking-tighter text-transparent"
                 style={{ WebkitTextStroke: '1px rgba(255,255,255,0.8)' }}
               >
-                Islam Manik
+                Cremain
               </span>
             ))}
           </div>
@@ -82,12 +72,12 @@ export default function GalleryMarquee() {
           {/* Loop Set 2: ADDED 'flex-none' to prevent shrinking */}
           <div className="flex min-w-full items-center flex-none">
             {[1, 2, 3, 4].map((item) => (
-              <span 
-                key={item} 
+              <span
+                key={item}
                 className="mx-8 text-6xl md:text-8xl lg:text-9xl font-semibold uppercase tracking-tighter text-transparent"
                 style={{ WebkitTextStroke: '1px rgba(255,255,255,0.8)' }}
               >
-                Islam Manik
+                Cremain
               </span>
             ))}
           </div>

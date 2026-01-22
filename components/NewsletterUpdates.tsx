@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { GALLERY_PHOTOS } from '@/lib/assets';
 
 export default function NewsletterUpdates() {
   return (
@@ -9,9 +10,9 @@ export default function NewsletterUpdates() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <h2 className="text-4xl md:text-6xl font-display font-semibold uppercase tracking-tighter leading-none">
-              Never miss <br /> what's next
+              Join The <br /> Journey
             </h2>
-            
+
             <div className="w-full">
               <form className="w-full max-w-md">
                 <div className="relative">
@@ -29,7 +30,7 @@ export default function NewsletterUpdates() {
                   </button>
                 </div>
                 <p className="mt-4 text-xs text-white/40">
-                  By submitting your email, you’ll be the first to know about upcoming updates. You can unsubscribe at any time.
+                  Get notified about album releases, shows, and exclusive content. Unsubscribe anytime.
                 </p>
               </form>
             </div>
@@ -44,57 +45,57 @@ export default function NewsletterUpdates() {
             <div>
               <div className="text-sm font-semibold uppercase tracking-widest text-white/50 mb-2">News</div>
               <h2 className="text-4xl md:text-6xl font-display font-semibold uppercase tracking-tighter leading-none">
-                Explore <br /> Our Updates
+                Latest <br /> Updates
               </h2>
             </div>
-            <Link 
-              href="/news" 
-              className="mt-8 md:mt-0 px-6 py-2 border border-white text-sm font-semibold uppercase tracking-wider hover:bg-white hover:text-black transition-all duration-300"
+            <Link
+              href="/news"
+              className="mt-8 md:mt-0 px-6 py-2 border border-white text-sm font-semibold uppercase tracking-wider hover:bg-[#B48D5C] hover:text-black transition-all duration-300"
             >
               More News
             </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* News Item 1 */}
-            <div className="group cursor-pointer">
+            {/* News Item 1 - Single Release */}
+            <Link href="/music" className="group cursor-pointer">
               <div className="aspect-[4/3] bg-neutral-800 mb-6 overflow-hidden relative">
-                <div className="absolute inset-0 bg-neutral-700 animate-pulse group-hover:scale-105 transition-transform duration-700"></div>
+                <img src="/Dear Melancholia track artworks /4. Sinner.jpg" alt="Sinner" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="flex justify-between items-center text-xs font-semibold uppercase tracking-widest text-white/50 mb-2">
-                <span>Update</span>
-                <span>4.10.2025</span>
+                <span>Single</span>
+                <span>1.23.2026</span>
               </div>
               <h3 className="text-xl font-display font-semibold uppercase tracking-wide group-hover:text-white/70 transition-colors">
-                Headz Values Fan Feedback
+                "Sinner" - New Single Available Now
               </h3>
-            </div>
+            </Link>
 
-            {/* News Item 2 */}
-            <div className="group cursor-pointer">
+            {/* News Item 2 - Album Announcement */}
+            <Link href="/music" className="group cursor-pointer">
               <div className="aspect-[4/3] bg-neutral-800 mb-6 overflow-hidden relative">
-                <div className="absolute inset-0 bg-neutral-700 animate-pulse group-hover:scale-105 transition-transform duration-700"></div>
+                <img src="/Dear Melancholia (Album Cover)/Cremain - Dear Melancholia Cover Artwork 2025 - Updated version 8.png" alt="Dear Melancholia" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="flex justify-between items-center text-xs font-semibold uppercase tracking-widest text-white/50 mb-2">
-                <span>Music</span>
-                <span>4.7.2025</span>
+                <span>Album</span>
+                <span>Coming Soon</span>
               </div>
               <h3 className="text-xl font-display font-semibold uppercase tracking-wide group-hover:text-white/70 transition-colors">
-                The Legacy of Headz in Metal Music
+                Dear Melancholia - Debut Album
               </h3>
-            </div>
+            </Link>
 
-            {/* News Item 3 */}
+            {/* News Item 3 - Live Shows */}
             <div className="group cursor-pointer">
               <div className="aspect-[4/3] bg-neutral-800 mb-6 overflow-hidden relative">
-                <div className="absolute inset-0 bg-neutral-700 animate-pulse group-hover:scale-105 transition-transform duration-700"></div>
+                <img src={GALLERY_PHOTOS[0]} alt="Live" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="flex justify-between items-center text-xs font-semibold uppercase tracking-widest text-white/50 mb-2">
                 <span>Live</span>
-                <span>4.10.2025</span>
+                <span>TBA 2026</span>
               </div>
               <h3 className="text-xl font-display font-semibold uppercase tracking-wide group-hover:text-white/70 transition-colors">
-                What to Expect on the Headz Tour
+                Album Launch Shows Announced
               </h3>
             </div>
           </div>
@@ -102,4 +103,4 @@ export default function NewsletterUpdates() {
       </section>
     </>
   );
-}
+ }

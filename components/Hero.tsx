@@ -6,7 +6,7 @@ import HomeBottomText from './HomeBottomText';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-const back = '/assets/a.avif';
+const back = '/Photos/DSC_3587.jpg'; // Using band photo as hero background
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -52,12 +52,12 @@ const Hero: React.FC = () => {
             <div className='flex items-center gap-3 px-2 pb-1'>
                 <div className='bg-white/10 p-1.5 rounded-full'>
                     <svg className="w-4 h-4 text-white fill-current" viewBox="0 0 24 24">
-                        <path d="/assets/video.mp4" />
+                        <path d="M8 5v14l11-7z"/>
                     </svg>
                 </div>
                 <div className='flex flex-col'>
                     <p className='text-[0.7rem] font-[font2] font-black tracking-[0.3em] uppercase text-[#D3FD50]'>Video</p>
-                    <p className='text-[0.8rem] font-[font1] tracking-widest uppercase opacity-80'>মেয়ে তোমার আমি বন্ধু হবো</p>
+                    <p className='text-[0.8rem] font-[font1] tracking-widest uppercase opacity-80'>Sinner - Teaser</p>
                 </div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { SITE_CONFIG } from '@/lib/assets';
 
 export default function Footer() {
   return (
@@ -11,8 +12,8 @@ export default function Footer() {
           <div className="flex flex-col space-y-5">
             <h4 className="text-lg font-normal uppercase tracking-[0.2em] text-white/40 mb-2">Sitemap</h4>
             <Link href="/" className="text-base font-normal uppercase tracking-wider hover:text-white/50 transition-colors">Home</Link>
+            <Link href="/about" className="text-base font-normal uppercase tracking-wider hover:text-white/50 transition-colors">About</Link>
             <Link href="/music" className="text-base font-normal uppercase tracking-wider hover:text-white/50 transition-colors">Music</Link>
-            <Link href="/band" className="text-base font-normal uppercase tracking-wider hover:text-white/50 transition-colors">Band</Link>
             <Link href="/contact" className="text-base font-normal uppercase tracking-wider hover:text-white/50 transition-colors">Contact</Link>
           </div>
 
@@ -27,6 +28,7 @@ export default function Footer() {
           {/* Column 3: Utilities */}
           <div className="flex flex-col space-y-5">
             <h4 className="text-lg font-normal uppercase tracking-[0.2em] text-white/40 mb-2">Utilities</h4>
+            <Link href="/about#epk" className="text-base font-normal uppercase tracking-wider hover:text-white/50 transition-colors">EPK</Link>
             <Link href="/instructions" className="text-base font-normal uppercase tracking-wider hover:text-white/50 transition-colors">Instructions</Link>
             <Link href="/styleguide" className="text-base font-normal uppercase tracking-wider hover:text-white/50 transition-colors">Styleguide</Link>
             <Link href="/licensing" className="text-base font-normal uppercase tracking-wider hover:text-white/50 transition-colors">Licensing</Link>
@@ -76,13 +78,13 @@ export default function Footer() {
             
             <div className="flex flex-col space-y-1 text-base font-normal text-white/40 uppercase tracking-[0.15em]">
               <span>Powered by Next.js</span>
-              <span>©2026 Islam Manik. All rights reserved.</span>
+              <span>©2026 Cremain. All rights reserved.</span>
             </div>
           </div>
 
           {/* Large Brand Name - The only bold element as requested */}
           <div className="text-6xl md:text-8xl lg:text-9xl font-display font-semibold uppercase tracking-tighter leading-none select-none text-white/90">
-            Islam Manik
+            Cremain
           </div>
         </div>
       </div>

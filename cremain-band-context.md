@@ -42,3 +42,112 @@ This section is explicitly designed "for promoters, venues, and media" to provid
 • Streaming Links (Spotify / Bandcamp),  
 • Booking Contact details,  
 Additionally, there is a dedicated "Contact" section on the site specifically for "Booking / press / collaborations," which provides options to email or call the band directly
+
+# SEO Audit & Content Optimization Strategy: Cremain
+
+**Date:** January 23, 2026
+**Target:** Cremain Official Website
+**Primary Goal:** Increase organic visibility for "Post-rock," "Progressive rock," and "Dhaka band" queries.
+
+---
+
+## 1. Executive Summary
+[cite_start]The current website copy is atmospheric and evocative, aligning well with the post-rock genre[cite: 1, 10]. However, from an SEO perspective, it relies heavily on "vibes" rather than concrete keywords. To rank better, we must bridge the gap between **poetic description** and **search intent**.
+
+**Key Strengths:**
+* [cite_start]Clear genre definition (Post-rock / Progressive rock)[cite: 1, 3].
+* [cite_start]Strong local identifier (Dhaka, Bangladesh)[cite: 3, 6].
+* [cite_start]Good use of "For Fans Of" (FFO) signals (Alcest, Russian Circles)[cite: 5].
+
+**Critical Gaps:**
+* Generic headings (e.g., "About", "Music", "Media") lack context.
+* Meta data is likely missing or unoptimized based on the visible text.
+* Limited text volume for "crawlers" to index on the main landing area.
+
+---
+
+## 2. Meta Data Optimization
+Search engines use these tags to understand your site before users even click.
+
+### Page Title
+[cite_start]**Current:** `Cremain — Official Site` [cite: 1]
+**Recommendation:** `Cremain | Post-Rock & Progressive Rock Band | Dhaka, Bangladesh`
+* **Why:** Immediately tells Google *who* (Cremain), *what* (Genre), and *where* (Location).
+
+### Meta Description
+**Current:** (Likely defaults to first line) `Textures of loss and light. [cite_start]Instrumentals that breathe, lyrics that haunt.` [cite: 1]
+**Recommendation:**
+> "Listen to Cremain, a Dhaka-based post-rock band blending progressive precision with atmospheric soundscapes. Debut album 'Dear Melancholia' coming soon. For fans of Alcest & Russian Circles."
+* [cite_start]**Why:** Includes action verb ("Listen"), specific location [cite: 3][cite_start], album title [cite: 2][cite_start], and relevant artist nodes[cite: 5].
+
+---
+
+## 3. On-Page Content & Heading Structure
+Search engines heavily weigh `H1`, `H2`, and `H3` headers. Currently, the site uses generic headers.
+
+### A. The Hero Section
+* [cite_start]**Current Text:** "Textures of loss and light." [cite: 1]
+* **SEO Tweak:** Keep the poetic text but add a sub-header that reinforces the genre.
+* **Suggested H1:** `Cremain: Atmospheric Post-Rock from Dhaka`
+
+### B. The "About" Section
+* [cite_start]**Current Header:** "About" [cite: 3]
+* **Recommendation:** Rename to `## About the Band`
+* [cite_start]**Copy Refinement:** The current bio is strong ("trace the fault lines between grief and grace")[cite: 4].
+    * **Add:** A sentence that explicitly mentions "Bangladeshi Underground Scene" or "Experimental Rock" to capture broader search queries.
+
+### C. The "Music" Section
+* [cite_start]**Current Header:** "Music" 
+* **Recommendation:** Rename to `## Discography & Streaming`
+* **Copy Refinement:**
+    * [cite_start]Ensure the text "Debut release 'Sinner' from our first album 'Dear Melancholia'" [cite: 2] is text, not an image, so it is searchable.
+
+### D. The "Media/EPK" Section
+* [cite_start]**Current Header:** "Electronic Press Kit (EPK)" [cite: 8]
+* **Recommendation:** `## Press Kit & Downloads`
+* [cite_start]**File Naming:** Ensure the downloadable PDF is named `Cremain_PostRock_Band_EPK_2026.pdf` rather than just `One-page EPK (PDF)`[cite: 13].
+
+---
+
+## 4. Local SEO Strategy (Dhaka/Bangladesh)
+[cite_start]Since the band is explicitly "Dhaka-based"[cite: 3, 6], you have a high chance of ranking for local niche searches.
+
+* [cite_start]**Venue Keywords:** In the "Upcoming" or "Shows" section[cite: 7], even if there are no dates, add a footer note:
+    > "Past performances at [Insert Famous Dhaka Venues] and available for booking in Dhaka and nationwide."
+* **Google My Business:** Ensure "Cremain" is registered as a "Musical Artist" on Google Maps located in Dhaka.
+
+---
+
+## 5. Image Alt Text Strategy
+[cite_start]The site asks to "Drop your best live photos... into the /assets/images folder"[cite: 7]. You must rename these files before uploading.
+
+* **Bad Name:** `IMG_0552.jpg`
+* **Good Name:** `Cremain-Live-Post-Rock-Band-Dhaka-Guitars.jpg`
+* [cite_start]**Alt Text:** "Sakib and Labib of Cremain performing live post-rock music in Dhaka." 
+
+---
+
+## 6. Structured Data (JSON-LD)
+Add this hidden code to your site's `<head>`. [cite_start]It helps Google display your "Quick Facts"  directly in search results.
+
+```json
+{
+  "@context": "[https://schema.org](https://schema.org)",
+  "@type": "MusicGroup",
+  "name": "Cremain",
+  "url": "[https://cremainband.com](https://cremainband.com)",
+  "genre": ["Post-rock", "Progressive rock"],
+  "foundingLocation": {
+    "@type": "City",
+    "name": "Dhaka"
+  },
+  "foundingDate": "2022",
+  "member": [
+    {"@type": "Person", "name": "Sakib", "roleName": "Vocals"},
+    {"@type": "Person", "name": "Labib", "roleName": "Guitars"},
+    {"@type": "Person", "name": "Ayman", "roleName": "Guitars"},
+    {"@type": "Person", "name": "Siam", "roleName": "Bass"},
+    {"@type": "Person", "name": "Shadman", "roleName": "Keys"},
+    {"@type": "Person", "name": "Irad", "roleName": "Drums"}
+  ]
+}

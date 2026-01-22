@@ -14,10 +14,12 @@ const oswald = Oswald({
 
 import { NavProvider } from "./context/NavContext";
 import Navbar from "@/components/Navbar";
+import Template from "./template";
+import { SITE_CONFIG } from "@/lib/assets";
 
 export const metadata: Metadata = {
-  title: "Islam Manik",
-  description: "Official Website of Islam Manik",
+  title: SITE_CONFIG.fullName,
+  description: `${SITE_CONFIG.tagline} ${SITE_CONFIG.genre} band from ${SITE_CONFIG.location}. Debut album "Dear Melancholia" coming soon.`,
 };
 
 export default function RootLayout({
@@ -32,7 +34,7 @@ export default function RootLayout({
       >
         <NavProvider>
           <Navbar />
-          {children}
+          <Template>{children}</Template>
         </NavProvider>
       </body>
     </html>

@@ -3,19 +3,20 @@ import React, { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-const member1 = '/assets/member1.png';
-const member2 = '/assets/member2.jpg';
-const member3 = '/assets/member3.jpg';
-const member4 = '/assets/member4.png';
+import { BAND_MEMBERS, BIO } from '@/lib/assets';
 
 gsap.registerPlugin(ScrollTrigger);
 
 interface BandMember {
     name: string;
     role: string;
-    img: string; 
+    img: string;
 }
+
+// Six-member lineup description
+const LINEUP_DESCRIPTION = `The richness of Cremain's widescreen sound is the result of a robust six-member lineup that functions as a single, breathing entity. This is not a standard rock outfit; it is a collective designed for maximum atmospheric depth.
+
+The architecture is anchored by the "tectonic" percussion of Irad and the grounding bass of Siam, while Shadman's keys provide the essential atmospheric glue. The dual guitars of Labib and Ayman create the vast, "widescreen" scale that defines their crescendos. At the center of this wall of sound is Sakib, whose vocals and "lyrics that haunt" provide the human anchor to their "elegiac melodies." Together, they move from pin-drop minimalism to thunderous finales with a synchronicity that is rare for such a young ensemble.`;
 
 const Band: React.FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -34,40 +35,51 @@ const Band: React.FC = () => {
         });
     }, { scope: containerRef });
 
-    const bandMembers: BandMember[] = [
-        { name: 'Sofia Ericsson', role: 'Guitar / Vocals', img: member2 },
-        { name: 'Nick Talbot', role: 'Bass', img: member1 },
-        { name: 'John Blackstone', role: 'Lead Guitar', img: member3 },
-        { name: 'Tom Braxley', role: 'Drums', img: member4 },
-    ];
+    const bandMembers: BandMember[] = [...BAND_MEMBERS].map(member => ({
+        name: member.name,
+        role: member.role,
+        img: member.img,
+    }));
 
     return (
         <div ref={containerRef} className="bg-black text-white font-inter">
             {/* Hero Section */}
             <section id="band" className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black">
                 <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black"></div>
-                
+
                 <h1 className="relative z-10 text-[15vw] font-space font-semibold uppercase tracking-tighter leading-none pointer-events-none opacity-90">
-                    Islam Manik
+                    Cremain
                 </h1>
             </section>
 
             {/* Intro Content */}
-            <section className="py-15 px-6 lg:px-24">
+            <section className="py-15 px-6 lg:px-24" id="epk">
                 <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20">
                     <div className="lg:w-1/2">
                         <h2 className="text-4xl lg:text-5xl font-space font-medium uppercase leading-tight italic">
-                            Fueling Sound With<br />Cutting-Edge Intensity
+                            Shadows and<br />Soundscapes
                         </h2>
                     </div>
                     <div className="lg:w-1/2 flex flex-col gap-8 text-neutral-400 font-light leading-relaxed">
                         <p className="reveal-text">
-                            Hailing from the underground rock scene, Headz is an indie metal rock band that blends raw power, haunting melodies, and unapologetic energy. With their unique fusion of heavy riffs, electrifying solos, and emotionally charged lyrics, Headz has carved a distinct sound that bridges the gap between classic metal and modern rock.
+                            {BIO.main}
                         </p>
                         <p className="reveal-text">
-                            Their music is a sonic assault of blistering guitar work, thunderous drumming, and deep, pulsating basslines, all intertwined with powerful vocal performances that evoke both rage and vulnerability.
+                            {BIO.sound}
                         </p>
                     </div>
+                </div>
+            </section>
+
+            {/* Lineup Description */}
+            <section className="py-16 px-6 lg:px-24 bg-neutral-900/30">
+                <div className="max-w-7xl mx-auto">
+                    <h3 className="text-xl font-space uppercase tracking-[0.2em] text-white/40 mb-8">
+                        The Architecture of Sound
+                    </h3>
+                    <p className="text-neutral-400 font-light leading-relaxed text-lg">
+                        {LINEUP_DESCRIPTION}
+                    </p>
                 </div>
             </section>
 
@@ -96,11 +108,11 @@ const Band: React.FC = () => {
                         <div className="lg:w-1/2 flex flex-col gap-8">
                             <h2 className="text-xl font-space uppercase tracking-[0.3em] text-neutral-500">Origins & Evolution</h2>
                             <p className="text-neutral-400 font-light leading-relaxed">
-                                Formed in the late 2010s, Headz began as a passion project among four musicians seeking to channel their diverse influences into something fresh and explosive. Nick Talbot, with his gritty yet melodic vocal style and high-energy bass playing, became the driving force behind the band's creative direction.
+                                {BIO.origins}
                             </p>
                         </div>
                         <div className="lg:w-1/2 aspect-video overflow-hidden bg-neutral-800">
-                             {/* Placeholder for Origins image */}
+                             <img src="/Photos/DSC_3587.jpg" alt="Cremain Origins" className="w-full h-full object-cover opacity-60" />
                         </div>
                     </div>
 
@@ -109,18 +121,18 @@ const Band: React.FC = () => {
                         <div className="lg:w-1/2 flex flex-col gap-8">
                             <h2 className="text-xl font-space uppercase tracking-[0.3em] text-neutral-500">Music & Influence</h2>
                             <p className="text-neutral-400 font-light leading-relaxed">
-                                Drawing inspiration from legendary acts like Metallica, Alice in Chains, and Mastodon, Headz infuses their songs with a mix of hard-hitting aggression and haunting melodies. Their lyrics often explore themes of struggle, self-discovery, and rebellion, reflecting their journey as independent musicians navigating the ever-evolving rock landscape.
+                                {BIO.influence}
                             </p>
                         </div>
                         <div className="lg:w-1/2 aspect-video overflow-hidden bg-neutral-800">
-                             {/* Placeholder for Music & Influence image */}
+                             <img src="/Photos/IMG_1907.jpg" alt="Cremain Live" className="w-full h-full object-cover opacity-60" />
                         </div>
                     </div>
                 </div>
             </section>
 
             <footer className="py-20 text-center border-t border-white/5">
-                <p className="text-neutral-600 font-space uppercase tracking-widest">© 2026 Headz Band</p>
+                <p className="text-neutral-600 font-space uppercase tracking-widest">© 2026 Cremain</p>
             </footer>
         </div>
     );

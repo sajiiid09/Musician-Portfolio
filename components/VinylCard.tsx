@@ -2,6 +2,7 @@
 
 import React, { useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
+import { VINYL_ASSETS } from '@/lib/assets';
 
 interface VinylCardProps {
   title: string;
@@ -28,12 +29,8 @@ export default function VinylCard({ title, coverImage }: VinylCardProps) {
     mouseY.set(e.clientY - rect.top - 64);
   };
 
-  // --- Asset URLs (From your provided index.html) ---
-  const ASSETS = {
-    sleeve: "https://cdn.prod.website-files.com/67d04807565b2b5da857ce4c/67dbd170607a013cea990fbe_headz-sleeve.avif",
-    vinyl: "https://cdn.prod.website-files.com/67d04807565b2b5da857ce4c/67dbd169c1de6d3f5e09568b_d75c92e9b8d0ac0a9560ac468c7e5af1_headz-record.avif",
-    logo: "https://cdn.prod.website-files.com/67d04807565b2b5da857ce4c/67f4e168894e8708b48e6eda_headz-logo-black.svg"
-  };
+  // --- Asset URLs from centralized config ---
+  const ASSETS = VINYL_ASSETS;
 
   return (
     <motion.div

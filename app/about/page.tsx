@@ -5,13 +5,16 @@ import NewsletterUpdates from "@/components/NewsletterUpdates";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Band from "@/components/Band";
+import EPKSection from "@/components/EPKSection";
 
 export default function About() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center bg-black">
       {/* --- MAIN CONTENT SECTIONS --- */}
       <Band />
-      
+
+      <EPKSection />
+
       <GalleryMarquee />
       <UpcomingEvents />
       <Footer />

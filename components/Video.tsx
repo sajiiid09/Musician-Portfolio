@@ -1,16 +1,17 @@
 import React from 'react';
+import { SINGLE_SINNER } from '@/lib/assets';
 
 const Video: React.FC = () => {
   return (
     <div className='h-full w-full'>
-        {/* Video from assets folder */}
-        <video 
-            className='h-full w-full object-cover' 
-            autoPlay 
-            loop 
-            muted 
+        {/* Sinner Teaser Video */}
+        <video
+            className='h-full w-full object-cover'
+            autoPlay
+            loop
+            muted
             playsInline
-            src="/assets/video.mp4" 
+            src={SINGLE_SINNER.video}
         />
     </div>
   );

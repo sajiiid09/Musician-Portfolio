@@ -2,6 +2,7 @@
 
 import React, { useRef } from 'react';
 import { motion, useInView, easeInOut } from 'framer-motion';
+import { UPCOMING_EVENTS } from '@/lib/assets';
 
 type Event = {
   id: number;
@@ -11,50 +12,7 @@ type Event = {
   ticketLink: string;
 };
 
-const events: Event[] = [
-  {
-    id: 1,
-    date: 'FEB 10, 2026',
-    venue: 'Brooklyn Steel',
-    address: '319 Frost St, Brooklyn, NY',
-    ticketLink: '#',
-  },
-  {
-    id: 2,
-    date: 'APR 07, 2026',
-    venue: 'Astra Kulturhaus',
-    address: 'Revaler Str. 99, Berlin',
-    ticketLink: '#',
-  },
-  {
-    id: 3,
-    date: 'JUN 18, 2026',
-    venue: 'Los Globos',
-    address: '3040 W Sunset Blvd, Los Angeles',
-    ticketLink: '#',
-  },
-  {
-    id: 4,
-    date: 'AUG 13, 2026',
-    venue: 'The Independent',
-    address: '628 Divisadero St, San Francisco',
-    ticketLink: '#',
-  },
-  {
-    id: 5,
-    date: 'SEP 03, 2026',
-    venue: 'Razzberry Rhinoceros',
-    address: 'Juhu Hotel, Mumbai',
-    ticketLink: '#',
-  },
-  {
-    id: 6,
-    date: 'SEP 09, 2026',
-    venue: 'Nippon Budokan',
-    address: '2-3 Kitanomarukoen, Tokyo',
-    ticketLink: '#',
-  },
-];
+const events: Event[] = [...UPCOMING_EVENTS];
 
 // Animation Variants
 const containerVariants = {
