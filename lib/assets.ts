@@ -27,21 +27,21 @@ export const BAND_MEMBERS = [
   },
   {
     id: 4,
+    name: 'Irad',
+    role: 'Drums',
+    img: '/Photos of Cremain /WhatsApp Image 2026-01-08 at 10.51.12 PM.jpeg',
+  },
+  {
+    id: 5,
     name: 'Siam',
     role: 'Bass',
     img: '/Photos of Cremain /TIS03461.JPG',
   },
   {
-    id: 5,
+    id: 6,
     name: 'Shadman',
     role: 'Keys',
     img: '/Photos of Cremain /TIS03500.JPG',
-  },
-  {
-    id: 6,
-    name: 'Irad',
-    role: 'Drums',
-    img: '/Photos of Cremain /WhatsApp Image 2026-01-08 at 10.51.12 PM.jpeg',
   },
 ] as const;
 

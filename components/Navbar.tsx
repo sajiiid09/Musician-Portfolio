@@ -4,6 +4,8 @@ import React, { useContext, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import { NavbarColorContext, NavbarContext } from '@/app/context/NavContext';
 import { motion } from 'framer-motion';
+import { LOGOS } from '@/lib/assets';
+import { FaInstagram, FaFacebook } from 'react-icons/fa';
 
 // Define types for your Context if not already defined in NavContext
 type NavbarContextType = [boolean, React.Dispatch<React.SetStateAction<boolean>>];
@@ -43,8 +45,13 @@ const Navbar = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, ease: 'easeOut' }}
                 >
-                    <a href="/" className='cursor-pointer font-space hover:opacity-70 transition-opacity'>
-                       <h1 className='text-3xl lg:text-4xl font-medium tracking-tighter'>CREMAIN</h1>
+                    <a href="/" className='flex items-center gap-5 cursor-pointer font-space hover:opacity-70 transition-opacity'>
+                        <img
+                            src={LOGOS.symbolWhite}
+                            alt="Cremain Logo"
+                            className="h-16 lg:h-20 w-auto object-contain"
+                        />
+                        <h1 className='text-2xl lg:text-3xl font-medium tracking-tighter'> </h1>
                     </a>
                 </motion.div>
 
@@ -70,27 +77,27 @@ const Navbar = () => {
                     ))}
                 </nav>
 
+
                 {/* Icons Section */}
                 <div className='flex items-center gap-5 lg:gap-8'>
                     <a
-                        href="https://instagram.com/cremainband"
+                        href="https://www.instagram.com/cremainremain/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className='cursor-pointer hover:scale-110 transition-transform hover:text-[#D7AF7E]'
                         aria-label="Instagram"
                     >
-                        <svg className='w-4 h-4' viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                            <path d="M16 11.37A4 4 0 1 1-1.63 9.163l3.409 3.409a1 1 0 0 1-1.63 9.163 9.163h-1.432A6 6 0 0 1-3.858 4.925V17a6 6 0 0 1-3.858 4.925h-1.432A6 6 0 0 1 3.858 4.925H4.362z"></path>
-                        </svg>
+                        <FaInstagram className="w-6 h-6" />
                     </a>
-                    <div onClick={() => setNavOpen(true)} className='cursor-pointer hover:scale-110 transition-transform'>
-                        <svg className='w-4 h-4' viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M6 2L3 6v14a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2V6l-3-4Z"></path>
-                            <line x1="3" y1="6" x2="21" y2="6"></line>
-                            <path d="M16 11.37A4 4 0 0 1 1.63 9.163l3.409 3.409a1 1 0 0 1-1.63 9.163 9.163h-1.432A6 6 0 0 1-3.858 4.925V17a6 6 0 0 1 3.858 4.925h-1.432A6 6 0 0 1 3.858 4.925H4.362z"></path>
-                        </svg>
-                    </div>
+                    <a
+                        href="https://www.facebook.com/cremain"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className='cursor-pointer hover:scale-110 transition-transform hover:text-[#D7AF7E]'
+                        aria-label="Facebook"
+                    >
+                        <FaFacebook className="w-6 h-6" />
+                    </a>
                 </div>
             </div>
         </div>

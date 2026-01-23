@@ -21,7 +21,30 @@ The architecture is anchored by the "tectonic" percussion of Irad and the ground
 const Band: React.FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
 
+    const textPart1Ref = useRef<HTMLSpanElement>(null);
+    const textPart2Ref = useRef<HTMLSpanElement>(null);
+
     useGSAP(() => {
+        // Hero Text Reveal Animation
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#band', // Trigger element
+                start: 'top top',
+                end: '+=300%', // Pin for 3 screens
+                pin: true,
+                scrub: 1,
+            },
+        });
+
+        tl.to(textPart1Ref.current, {
+            clipPath: 'inset(0% 0% 0% 0%)',
+            ease: 'none',
+        })
+            .to(textPart2Ref.current, {
+                clipPath: 'inset(0% 0% 0% 0%)',
+                ease: 'none',
+            });
+
         // Paragraph Reveals
         gsap.from('.reveal-text', {
             y: 50,
@@ -44,12 +67,31 @@ const Band: React.FC = () => {
     return (
         <div ref={containerRef} className="bg-black text-white font-inter">
             {/* Hero Section */}
-            <section id="band" className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black">
-                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black"></div>
+            <section
+                id="band"
+                className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black"
+            >
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black z-0"></div>
 
-                <h1 className="relative z-10 text-[15vw] font-space font-semibold uppercase tracking-tighter leading-none pointer-events-none opacity-90">
-                    Cremain
-                </h1>
+                <div className="relative z-10 w-full px-4 text-center">
+                    {/* Layer 1: Base Text (Dimmed) */}
+                    <h1 className="text-[12vw] md:text-[15vw] lg:text-[18vw] font-space font-semibold uppercase tracking-tighter leading-none text-white/20 select-none">
+                        <span>We Are </span>
+                        <span>Cremain</span>
+                    </h1>
+
+                    {/* Layer 2: Overlay Text (White Fill) - Revealed via clip-path */}
+                    <h1
+                        className="absolute top-0 left-0 right-0 mx-auto text-[12vw] md:text-[15vw] lg:text-[18vw] font-space font-semibold uppercase tracking-tighter leading-none text-white pointer-events-none select-none"
+                    >
+                        <span ref={textPart1Ref} style={{ clipPath: 'inset(0% 100% 0% 0%)' }}>
+                            We Are{' '}
+                        </span>
+                        <span ref={textPart2Ref} style={{ clipPath: 'inset(0% 100% 0% 0%)' }}>
+                            Cremain
+                        </span>
+                    </h1>
+                </div>
             </section>
 
             {/* Intro Content */}
@@ -112,7 +154,7 @@ const Band: React.FC = () => {
                             </p>
                         </div>
                         <div className="lg:w-1/2 aspect-video overflow-hidden bg-neutral-800">
-                             <img src="/Photos/DSC_3587.jpg" alt="Cremain Origins" className="w-full h-full object-cover opacity-60" />
+                            <img src="/Photos/DSC_3587.jpg" alt="Cremain Origins" className="w-full h-full object-cover opacity-60" />
                         </div>
                     </div>
 
@@ -125,7 +167,7 @@ const Band: React.FC = () => {
                             </p>
                         </div>
                         <div className="lg:w-1/2 aspect-video overflow-hidden bg-neutral-800">
-                             <img src="/Photos/IMG_1907.jpg" alt="Cremain Live" className="w-full h-full object-cover opacity-60" />
+                            <img src="/Photos/IMG_1907.jpg" alt="Cremain Live" className="w-full h-full object-cover opacity-60" />
                         </div>
                     </div>
                 </div>
