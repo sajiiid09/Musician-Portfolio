@@ -4,7 +4,6 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import VinylCard from './VinylCard';
 import { ALBUM_DEAR_MELANCHOLIA, SINGLE_SINNER } from '@/lib/assets';
-
 import { FaSpotify, FaYoutube } from 'react-icons/fa';
 
 // --- CONFIGURATION ---
@@ -27,13 +26,13 @@ const RELEASES = [
   }
 ];
 
-// --- POLISHED ICONS (using React Icons) ---
+// --- POLISHED ICONS ---
 const ICONS = {
   spotify: (className = "w-5 h-5") => <FaSpotify className={className} />,
   youtube: (className = "w-5 h-5") => <FaYoutube className={className} />,
 };
 
-// --- UPDATED BUTTON COMPONENT ---
+// --- OPTIMIZED BUTTON COMPONENT ---
 const StreamButton = ({
   href,
   icon,
@@ -50,13 +49,13 @@ const StreamButton = ({
     target="_blank"
     rel="noopener noreferrer"
     className={`
-      flex items-center gap-3 px-6 py-3 rounded-full border transition-all duration-300 group
+      flex items-center justify-center gap-3 px-6 py-4 md:py-3 rounded-full border transition-all duration-300 group
+      w-full md:w-auto flex-1 md:flex-none
       ${primary
         ? 'bg-white text-black border-white hover:bg-black hover:text-white hover:border-white'
         : 'bg-black/40 text-white border-white/30 hover:bg-white hover:text-black hover:border-white'}
     `}
   >
-    {/* Icon Container: Ensures size stability */}
     <span className="shrink-0 transition-transform group-hover:scale-110">
       {icon}
     </span>
@@ -73,28 +72,33 @@ export default function MusicSection() {
     offset: ["start start", "end end"]
   });
 
+  // Adjusted transforms for smoother mobile fade-out
   const scrollScale = useTransform(scrollYProgress, [0, 0.2, 1], [1, 1, 0.9]);
-  const scrollOpacity = useTransform(scrollYProgress, [0, 0.2, 0.5], [1, 1, 0.1]);
+  const scrollOpacity = useTransform(scrollYProgress, [0, 0.15, 0.4], [1, 1, 0]); // Fades out faster on mobile to clear way for content
   const progressHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
     <section
       ref={containerRef}
       className="relative w-full bg-black text-white"
-      style={{ minHeight: '300vh' }}
+      // Reduced height on mobile to prevent endless scrolling feeling
+      style={{ minHeight: '220vh' }} // Was 300vh, now dynamic via CSS class below for larger screens
     >
+      <div className="hidden md:block absolute inset-0 pointer-events-none" style={{ minHeight: '300vh' }} />
+
       {/* --- LAYER 0: STICKY TITLE --- */}
       <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-        <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+        {/* h-[100dvh] fixes mobile browser bar jumpiness */}
+        <div className="sticky top-0 h-[100dvh] flex items-center justify-center overflow-hidden">
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, y: 100 }}
+            initial={{ opacity: 0, scale: 0.8, y: 50 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
           >
             <motion.h1
               style={{ scale: scrollScale, opacity: scrollOpacity }}
-              className="text-[16vw] font-semibold leading-none tracking-tighter text-white select-none will-change-transform"
+              className="text-[18vw] md:text-[16vw] font-semibold leading-none tracking-tighter text-white select-none will-change-transform text-center"
             >
               DISCOGRAPHY
             </motion.h1>
@@ -103,9 +107,9 @@ export default function MusicSection() {
       </div>
 
       {/* --- LAYER 1: CONTENT GRID --- */}
-      <div className="relative z-10 w-full max-w-[1600px] mx-auto grid grid-cols-[80px_1fr] md:grid-cols-[150px_1fr] h-full">
+      <div className="relative z-10 w-full max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-[150px_1fr] h-full">
 
-        {/* Left Sidebar (Sticky) */}
+        {/* Left Sidebar (Hidden on Mobile) */}
         <div className="hidden md:flex flex-col h-screen sticky top-0 justify-center items-center border-r border-white/10">
           <div className="relative h-[60vh] w-[1px] bg-white/10 overflow-hidden">
             <motion.div
@@ -121,67 +125,21 @@ export default function MusicSection() {
         </div>
 
         {/* Right Content */}
-        <div className="flex flex-col px-4 md:px-20">
+        <div className="flex flex-col px-4 md:px-20 pb-20 md:pb-0">
 
-          {/* Buffer */}
-          <div className="h-[80vh] w-full" />
+          {/* Buffer: Smaller on mobile to show content sooner */}
+          <div className="h-[50vh] md:h-[80vh] w-full" />
 
           {/* === RELEASE 1: DEAR MELANCHOLIA (ALBUM) === */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 items-center pb-60">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-24 items-center pb-32 md:pb-60">
 
-            {/* Tracklist (Left) */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-20%" }}
-              className="order-2 lg:order-1 space-y-8"
-            >
-              <h2 className="text-3xl md:text-5xl font-semibold uppercase tracking-tight text-left">
-                {ALBUM_DEAR_MELANCHOLIA.title}
-              </h2>
-
-              <div className="space-y-4">
-                <h3 className="text-sm font-space uppercase tracking-[0.2em] text-white/60 mb-6">
-                  Tracklist
-                </h3>
-                {ALBUM_DEAR_MELANCHOLIA.tracks.map((track) => (
-                  <div
-                    key={track.id}
-                    className="flex items-center gap-6 py-3 border-b border-white/10 group hover:bg-white/5 transition-colors cursor-default"
-                  >
-                    <span className="text-white/40 font-mono text-sm w-6">
-                      {track.id.toString().padStart(2, '0')}
-                    </span>
-                    <span className="text-white/80 font-medium tracking-wide group-hover:text-white transition-colors">
-                      {track.title}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex flex-wrap gap-4 pt-4">
-                <StreamButton
-                  primary
-                  href={RELEASES[0].links.spotify}
-                  icon={ICONS.spotify("w-6 h-6")}
-                  label="Listen on Spotify"
-                />
-                <StreamButton
-                  href={RELEASES[0].links.youtube}
-                  icon={ICONS.youtube("w-6 h-6")}
-                  label="Watch on YouTube"
-                />
-              </div>
-            </motion.div>
-
-            {/* Vinyl (Right) */}
+            {/* Vinyl (Order 1 on Mobile: Visual first) */}
             <div className="order-1 lg:order-2 flex flex-col items-center">
               <a
                 href={RELEASES[0].links.spotify}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="cursor-pointer transition-transform hover:scale-[1.02]"
+                className="cursor-pointer transition-transform hover:scale-[1.02] w-[80vw] md:w-full max-w-[500px]"
               >
                 <VinylCard
                   title={ALBUM_DEAR_MELANCHOLIA.title}
@@ -189,18 +147,64 @@ export default function MusicSection() {
                 />
               </a>
             </div>
+
+            {/* Tracklist (Order 2 on Mobile) */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              className="order-2 lg:order-1 space-y-6 md:space-y-8"
+            >
+              <h2 className="text-3xl md:text-5xl font-semibold uppercase tracking-tight text-center md:text-left">
+                {ALBUM_DEAR_MELANCHOLIA.title}
+              </h2>
+
+              <div className="space-y-2 md:space-y-4">
+                <h3 className="text-xs md:text-sm font-space uppercase tracking-[0.2em] text-white/60 mb-4 md:mb-6 text-center md:text-left">
+                  Tracklist
+                </h3>
+                {ALBUM_DEAR_MELANCHOLIA.tracks.map((track) => (
+                  <div
+                    key={track.id}
+                    className="flex items-center gap-4 md:gap-6 py-3 border-b border-white/10 group hover:bg-white/5 transition-colors cursor-default"
+                  >
+                    <span className="text-white/40 font-mono text-xs md:text-sm w-6">
+                      {track.id.toString().padStart(2, '0')}
+                    </span>
+                    <span className="text-white/80 font-medium text-sm md:text-base tracking-wide group-hover:text-white transition-colors truncate">
+                      {track.title}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Action Buttons: Full width on mobile */}
+              <div className="flex flex-col md:flex-row gap-3 pt-4 w-full">
+                <StreamButton
+                  primary
+                  href={RELEASES[0].links.spotify}
+                  icon={ICONS.spotify("w-5 h-5 md:w-6 md:h-6")}
+                  label="Listen on Spotify"
+                />
+                <StreamButton
+                  href={RELEASES[0].links.youtube}
+                  icon={ICONS.youtube("w-5 h-5 md:w-6 md:h-6")}
+                  label="Watch on YouTube"
+                />
+              </div>
+            </motion.div>
           </div>
 
           {/* === RELEASE 2: SINNER (SINGLE) === */}
-          <div className="flex flex-col items-center pb-60 border-t border-white/5 pt-40">
+          <div className="flex flex-col items-center pb-20 md:pb-60 border-t border-white/5 pt-24 md:pt-40">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-20%" }}
-              className="flex flex-col items-center gap-12 w-full max-w-3xl"
+              viewport={{ once: true, margin: "-10%" }}
+              className="flex flex-col items-center gap-8 md:gap-12 w-full max-w-3xl"
             >
-              <div className="text-center space-y-4">
-                <h3 className="text-sm font-space uppercase tracking-[0.3em] text-[#B48D5C]">
+              <div className="text-center space-y-2 md:space-y-4">
+                <h3 className="text-xs md:text-sm font-space uppercase tracking-[0.3em] text-[#B48D5C]">
                   Latest Single
                 </h3>
                 <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tighter">
@@ -212,7 +216,7 @@ export default function MusicSection() {
                 href={RELEASES[1].links.spotify}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="cursor-pointer transition-transform hover:scale-[1.02]"
+                className="cursor-pointer transition-transform hover:scale-[1.02] w-[70vw] md:w-full max-w-[500px]"
               >
                 <VinylCard
                   title={SINGLE_SINNER.title}
@@ -221,16 +225,16 @@ export default function MusicSection() {
               </a>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap justify-center gap-4 w-full">
+              <div className="flex flex-col md:flex-row justify-center gap-3 w-full">
                 <StreamButton
                   primary
                   href={RELEASES[1].links.spotify}
-                  icon={ICONS.spotify("w-6 h-6")}
+                  icon={ICONS.spotify("w-5 h-5 md:w-6 md:h-6")}
                   label="Listen Now"
                 />
                 <StreamButton
                   href={RELEASES[1].links.youtube}
-                  icon={ICONS.youtube("w-6 h-6")}
+                  icon={ICONS.youtube("w-5 h-5 md:w-6 md:h-6")}
                   label="Watch Video"
                 />
               </div>

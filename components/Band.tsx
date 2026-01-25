@@ -154,7 +154,7 @@ const Band: React.FC = () => {
                             </p>
                         </div>
                         <div className="lg:w-1/2 aspect-video overflow-hidden bg-neutral-800">
-                            <img src="/Photos/DSC_3587.jpg" alt="Cremain Origins" className="w-full h-full object-cover opacity-60" />
+                            <img src="/Photos/IMG_2892.png" alt="Cremain Origins" className="w-full h-full object-cover opacity-60" />
                         </div>
                     </div>
 
@@ -167,7 +167,7 @@ const Band: React.FC = () => {
                             </p>
                         </div>
                         <div className="lg:w-1/2 aspect-video overflow-hidden bg-neutral-800">
-                            <img src="/Photos/IMG_1907.jpg" alt="Cremain Live" className="w-full h-full object-cover opacity-60" />
+                            <img src="/Photos of Cremain /TIS03398.JPG" alt="Cremain Live" className="w-full h-full object-cover opacity-60" />
                         </div>
                     </div>
                 </div>

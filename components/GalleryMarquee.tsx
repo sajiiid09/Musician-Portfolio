@@ -1,26 +1,35 @@
 'use client';
 
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import Image from 'next/image'; // 1. Use Next.js Image for performance
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { GALLERY_PHOTOS } from '@/lib/assets';
 
 // Split gallery photos into two rows
 const ROW_1_IMAGES = GALLERY_PHOTOS.slice(0, 5);
 const ROW_2_IMAGES = GALLERY_PHOTOS.slice(5, 10);
 
-const ImageGrid = ({ images }: { images: string[] }) => (
+// Physics settings for the scroll smoothing
+// stiness: higher = more responsive, damping: higher = less oscillation
+const SPRING_OPTIONS = { stiffness: 100, damping: 30, restDelta: 0.001 };
+
+const ImageGrid = ({ images, priority = false }: { images: string[], priority?: boolean }) => (
   <div className="flex w-full gap-4 px-4 overflow-visible">
     {images.map((src, idx) => (
       <div
         key={idx}
-        className="relative flex-none w-[80vw] md:w-[35vw] lg:w-[25vw] aspect-[4/5] overflow-hidden group bg-neutral-900"
+        // Added transform-gpu and backface-visibility for smoother compositing
+        className="relative flex-none w-[80vw] md:w-[35vw] lg:w-[25vw] aspect-[4/5] overflow-hidden group bg-neutral-900 transform-gpu"
       >
-        <img
+        <Image
           src={src}
-          alt="Gallery"
-          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 will-change-transform"
+          alt={`Gallery image ${idx + 1}`}
+          fill
+          sizes="(max-width: 768px) 80vw, (max-width: 1200px) 35vw, 25vw"
+          priority={priority} // Load first row eagerly if near top of page
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 will-change-transform"
         />
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none" />
       </div>
     ))}
   </div>
@@ -34,10 +43,14 @@ export default function GalleryMarquee() {
     offset: ["start end", "end start"]
   });
 
+  // 2. SMOOTHING: Wrap the raw scroll input in a spring
+  // This removes the "steppy" / "jittery" feel of raw scroll wheels
+  const smoothProgress = useSpring(scrollYProgress, SPRING_OPTIONS);
+
   // --- PARALLAX LOGIC ---
-  // Optimized ranges for smooth single-line movement
-  const x1 = useTransform(scrollYProgress, [0, 1], ["-25%", "5%"]);
-  const x2 = useTransform(scrollYProgress, [0, 1], ["5%", "-25%"]);
+  // Using the smoothProgress instead of raw scrollYProgress
+  const x1 = useTransform(smoothProgress, [0, 1], ["-25%", "5%"]);
+  const x2 = useTransform(smoothProgress, [0, 1], ["5%", "-25%"]);
 
   return (
     <section
@@ -48,13 +61,14 @@ export default function GalleryMarquee() {
       {/* 1. TOP ROW (Moves Left -> Right) */}
       <motion.div
         style={{ x: x1 }}
-        className="w-full will-change-transform"
+        className="w-full will-change-transform transform-gpu" // GPU force
       >
-        <ImageGrid images={ROW_1_IMAGES} />
+        <ImageGrid images={ROW_1_IMAGES} priority={true} />
       </motion.div>
 
       {/* 2. INFINITE MARQUEE STRIP */}
-      <div className="w-full border-y border-white/10 bg-black py-6 md:py-12 overflow-hidden z-10 my-8">
+      {/* Added transform-gpu to the container to isolate painting */}
+      <div className="w-full border-y border-white/10 bg-black py-6 md:py-12 overflow-hidden z-10 my-8 transform-gpu">
         <motion.div
           className="flex whitespace-nowrap"
           animate={{ x: "-50%" }}
@@ -66,7 +80,7 @@ export default function GalleryMarquee() {
             {[1, 2, 3, 4].map((item) => (
               <span
                 key={item}
-                className="mx-8 text-6xl md:text-8xl lg:text-9xl font-semibold uppercase tracking-tighter text-transparent select-none"
+                className="mx-8 text-6xl md:text-8xl lg:text-9xl font-semibold uppercase tracking-tighter text-transparent select-none will-change-transform"
                 style={{ WebkitTextStroke: '1px rgba(255,255,255,0.8)' }}
               >
                 CREMAIN REMAINS
@@ -79,7 +93,7 @@ export default function GalleryMarquee() {
             {[1, 2, 3, 4].map((item) => (
               <span
                 key={item}
-                className="mx-8 text-6xl md:text-8xl lg:text-9xl font-semibold uppercase tracking-tighter text-transparent select-none"
+                className="mx-8 text-6xl md:text-8xl lg:text-9xl font-semibold uppercase tracking-tighter text-transparent select-none will-change-transform"
                 style={{ WebkitTextStroke: '1px rgba(255,255,255,0.8)' }}
               >
                 CREMAIN REMAINS
@@ -93,7 +107,7 @@ export default function GalleryMarquee() {
       {/* 3. BOTTOM ROW (Moves Right -> Left) */}
       <motion.div
         style={{ x: x2 }}
-        className="w-full will-change-transform"
+        className="w-full will-change-transform transform-gpu"
       >
         <ImageGrid images={ROW_2_IMAGES} />
       </motion.div>

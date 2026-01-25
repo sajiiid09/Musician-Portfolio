@@ -11,7 +11,7 @@ export const BAND_MEMBERS = [
     id: 1,
     name: 'Sakib',
     role: 'Vocals',
-    img: '/Photos of Cremain /TIS03219.JPG',
+    img: '/Photos of Cremain /WhatsApp Image 2026-01-08 at 10.51.12 PM.jpeg',
   },
   {
     id: 2,
@@ -23,25 +23,25 @@ export const BAND_MEMBERS = [
     id: 3,
     name: 'Ayman',
     role: 'Guitars',
-    img: '/Photos of Cremain /TIS03398.JPG',
+    img: '/Photos/IMG-20251108-WA0076.png',
   },
   {
     id: 4,
     name: 'Irad',
     role: 'Drums',
-    img: '/Photos of Cremain /WhatsApp Image 2026-01-08 at 10.51.12 PM.jpeg',
+    img: '/Photos/DSC_3587.jpg',
   },
   {
     id: 5,
     name: 'Siam',
     role: 'Bass',
-    img: '/Photos of Cremain /TIS03461.JPG',
+    img: '/Photos/IMG_1907.jpg',
   },
   {
     id: 6,
     name: 'Shadman',
     role: 'Keys',
-    img: '/Photos of Cremain /TIS03500.JPG',
+    img: '/Photos/IMG_3493.jpg',
   },
 ] as const;
 
@@ -56,32 +56,32 @@ export const ALBUM_DEAR_MELANCHOLIA = {
     {
       id: 1,
       title: 'Ravens Calling',
-      cover: '/Dear Melancholia track artworks /1. Ravens Calling.jpg',
+      cover: '/Dear Melancholia track artworks/1. Ravens Calling.jpg',
     },
     {
       id: 2,
       title: 'Lost',
-      cover: '/Dear Melancholia track artworks /2. Lost.jpg',
+      cover: '/Dear Melancholia track artworks/2. Lost.jpg',
     },
     {
       id: 3,
       title: 'Nei',
-      cover: '/Dear Melancholia track artworks /3. Nei.jpg',
+      cover: '/Dear Melancholia track artworks/3. Nei.jpg',
     },
     {
       id: 4,
       title: 'Sinner',
-      cover: '/Dear Melancholia track artworks /4. Sinner.jpg',
+      cover: '/Dear Melancholia track artworks/4. Sinner.jpg',
     },
     {
       id: 5,
       title: 'Jonoshunnota',
-      cover: '/Dear Melancholia track artworks /5. Jonoshunnota.jpg',
+      cover: '/Dear Melancholia track artworks/5. Jonoshunnota.jpg',
     },
     {
       id: 6,
       title: 'Help',
-      cover: '/Dear Melancholia track artworks /6. Help.jpg',
+      cover: '/Dear Melancholia track artworks/6. Help.jpg',
     },
   ],
 } as const;
@@ -109,16 +109,16 @@ export const LOGOS = {
 // GALLERY PHOTOS
 // ============================================
 export const GALLERY_PHOTOS = [
-  '/Photos/DSC_3587.jpg',
-  '/Photos/IMG_1907.jpg',
-  '/Photos/IMG_1917.jpg',
-  '/Photos/IMG_1920.jpg',
-  '/Photos/IMG_2892.png',
   '/Photos/IMG_3493.jpg',
+  '/Photos/IMG_1907.jpg',
+  '/Photos/IMG_2892.png',
+  '/Photos/DSC_3587.jpg',
   '/Photos/20251107_172929.png',
+  '/Photos/IMG_1917.jpg',
   '/Photos/IMG-20251108-WA0076.png',
-  '/Photos/IMG-20251108-WA0094.png',
+  '/Photos/IMG_1920.jpg',
   '/Photos/1.png',
+  '/Photos/IMG-20251108-WA0094.png',
 ] as const;
 
 // ============================================
