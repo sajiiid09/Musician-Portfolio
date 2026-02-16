@@ -22,6 +22,7 @@ import { NavProvider } from "./context/NavContext";
 import Navbar from "@/components/Navbar";
 import Template from "./template";
 import { SITE_CONFIG } from "@/lib/assets";
+import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata: Metadata = {
   title: SITE_CONFIG.fullName,
@@ -38,6 +39,8 @@ export default function RootLayout({
       <body
         className={`${cinzel.variable} ${archivo.variable} font-body antialiased bg-black text-white`}
       >
+        <SmoothScroll />
+        <div className="noise-overlay" />
         <NavProvider>
           <Navbar />
           <Template>{children}</Template>

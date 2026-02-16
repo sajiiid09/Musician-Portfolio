@@ -41,20 +41,20 @@ const itemVariants = {
 // Variants for the hover details
 const detailVariants = {
   initial: { opacity: 0, y: 15 },
-  hover: { 
-    opacity: 1, 
+  hover: {
+    opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.33, 1, 0.68, 1], delay: 0.1 }
-  }
+    transition: { duration: 0.6, ease: [0.33, 1, 0.68, 1], delay: 0.1 },
+  },
 };
 
 const accentVariants = {
   initial: { opacity: 0, scale: 0.8 },
-  hover: { 
-    opacity: 1, 
+  hover: {
+    opacity: 1,
     scale: 1,
-    transition: { duration: 0.6, ease: "easeOut" }
-  }
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
 };
 
 const fadeInUp = {
@@ -121,16 +121,17 @@ const Band: React.FC = () => {
             <span>We Are </span>
             <span>Cremain</span>
           </h1>
-          <h1 className="absolute top-0 left-0 right-0 mx-auto text-[12vw] md:text-[14vw] lg:text-[16vw] font-heading font-semibold uppercase tracking-tighter leading-none text-white pointer-events-none select-none">
+          <h1 className="absolute top-0 left-0 right-0 mx-auto text-[12vw] md:text-[14vw] lg:text-[16vw] font-heading font-semibold uppercase tracking-tighter leading-none pointer-events-none select-none">
             <span
               ref={textPart1Ref}
               style={{ clipPath: "inset(0% 100% 0% 0%)" }}
+              className="text-white"
             >
               We Are{" "}
             </span>
             <span
               ref={textPart2Ref}
-              style={{ clipPath: "inset(0% 100% 0% 0%)" }}
+              style={{ clipPath: "inset(0% 100% 0% 0%)", color: "#7c550f" }}
             >
               Cremain
             </span>
@@ -152,7 +153,7 @@ const Band: React.FC = () => {
               About The Band
             </span>
             <h2 className="text-4xl lg:text-5xl xl:text-6xl font-heading font-medium uppercase leading-[0.95] italic">
-              Shadows and
+              <span style={{ color: "#7c550f" }}>Shadows</span> and
               <br />
               <span className="text-white/60">Soundscapes</span>
             </h2>
@@ -184,7 +185,7 @@ const Band: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-[10px] font-heading uppercase tracking-[0.3em] text-white/30 mb-8 block"
           >
-            The Architecture of Sound
+            The Architecture of <span style={{ color: "#7c550f" }}>Sound</span>
           </motion.span>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -212,7 +213,7 @@ const Band: React.FC = () => {
               The Lineup
             </span>
             <h3 className="text-3xl lg:text-4xl font-heading uppercase tracking-tight">
-              Six Voices, One Sound
+              Six Voices, <span style={{ color: "#7c550f" }}>One Sound</span>
             </h3>
           </motion.div>
 
@@ -236,22 +237,23 @@ const Band: React.FC = () => {
                     className="object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 ease-out group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
-                  
+
                   {/* Subtle Gradient Overlay on hover */}
-                  <motion.div 
+                  <motion.div
                     variants={{
                       initial: { opacity: 0 },
-                      hover: { opacity: 1 }
+                      hover: { opacity: 1 },
                     }}
                     transition={{ duration: 0.7 }}
-                    className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-20 pointer-events-none" 
+                    className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-20 pointer-events-none"
                   />
 
                   {/* Corner anchored dynamic details - revealed on hover */}
-                  <div className={`absolute inset-0 p-8 flex flex-col z-30 pointer-events-none 
-                    ${i % 2 === 0 ? 'items-end justify-start text-right' : 'items-start justify-end text-left'}`}
+                  <div
+                    className={`absolute inset-0 p-8 flex flex-col z-30 pointer-events-none
+                    ${i % 2 === 0 ? "items-end justify-start text-right" : "items-start justify-end text-left"}`}
                   >
-                    <motion.p 
+                    <motion.p
                       variants={detailVariants}
                       className="text-[9px] lg:text-[10px] font-body uppercase tracking-[0.4em] text-white/90 leading-relaxed max-w-[220px]"
                     >
@@ -260,10 +262,22 @@ const Band: React.FC = () => {
                   </div>
 
                   {/* Aesthetic Frame Accents on hover */}
-                  <motion.div variants={accentVariants} className="absolute top-6 left-6 w-8 h-[1px] bg-white/40 z-30 origin-left" />
-                  <motion.div variants={accentVariants} className="absolute top-6 left-6 h-8 w-[1px] bg-white/40 z-30 origin-top" />
-                  <motion.div variants={accentVariants} className="absolute bottom-6 right-6 w-8 h-[1px] bg-white/40 z-30 origin-right" />
-                  <motion.div variants={accentVariants} className="absolute bottom-6 right-6 h-8 w-[1px] bg-white/40 z-30 origin-bottom" />
+                  <motion.div
+                    variants={accentVariants}
+                    className="absolute top-6 left-6 w-8 h-[1px] bg-white/40 z-30 origin-left"
+                  />
+                  <motion.div
+                    variants={accentVariants}
+                    className="absolute top-6 left-6 h-8 w-[1px] bg-white/40 z-30 origin-top"
+                  />
+                  <motion.div
+                    variants={accentVariants}
+                    className="absolute bottom-6 right-6 w-8 h-[1px] bg-white/40 z-30 origin-right"
+                  />
+                  <motion.div
+                    variants={accentVariants}
+                    className="absolute bottom-6 right-6 h-8 w-[1px] bg-white/40 z-30 origin-bottom"
+                  />
                 </div>
 
                 {/* Base Info with refined typography */}
@@ -277,13 +291,13 @@ const Band: React.FC = () => {
                     </span>
                   </div>
                   <div className="h-[1px] w-full bg-white/5 relative overflow-hidden">
-                    <motion.div 
+                    <motion.div
                       variants={{
                         initial: { x: "-100%" },
-                        hover: { x: "0%" }
+                        hover: { x: "0%" },
                       }}
                       transition={{ duration: 1, ease: "easeInOut" }}
-                      className="absolute inset-0 bg-white/20" 
+                      className="absolute inset-0 bg-white/20"
                     />
                   </div>
                   <p className="text-neutral-500 uppercase tracking-[0.25em] text-[10px] font-medium mt-1 group-hover:text-[#B48D5C] transition-colors duration-500">
@@ -308,11 +322,8 @@ const Band: React.FC = () => {
             className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center"
           >
             <div className="lg:w-1/2 flex flex-col gap-6">
-              <span className="text-[10px] uppercase tracking-[0.3em] text-white/30 font-medium">
-                01 / Origins
-              </span>
               <h2 className="text-2xl lg:text-3xl font-heading uppercase tracking-[0.15em] text-white/80">
-                Origins & Evolution
+                <span style={{ color: "#7c550f" }}>Origins</span> & Evolution
               </h2>
               <p className="text-neutral-400 font-light leading-[1.8] text-lg">
                 {BIO.origins}
@@ -339,11 +350,8 @@ const Band: React.FC = () => {
             className="flex flex-col lg:flex-row-reverse gap-12 lg:gap-20 items-center"
           >
             <div className="lg:w-1/2 flex flex-col gap-6">
-              <span className="text-[10px] uppercase tracking-[0.3em] text-white/30 font-medium">
-                02 / Influence
-              </span>
               <h2 className="text-2xl lg:text-3xl font-heading uppercase tracking-[0.15em] text-white/80">
-                Music & Influence
+                Music & <span style={{ color: "#7c550f" }}>Influence</span>
               </h2>
               <p className="text-neutral-400 font-light leading-[1.8] text-lg">
                 {BIO.influence}

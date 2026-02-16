@@ -171,8 +171,18 @@ export default function EPKSection() {
               className="inline-flex items-center gap-2 px-6 py-2.5 bg-white/5 border border-white/20 text-white text-xs font-medium uppercase tracking-wider rounded-full hover:bg-white hover:text-black hover:border-white transition-all duration-300"
             >
               Contact Us
-              <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              <svg
+                className="w-3 h-3"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
               </svg>
             </Link>
           </div>

@@ -31,7 +31,8 @@ export default function NewsletterUpdates() {
                   </button>
                 </div>
                 <p className="mt-4 text-xs font-body text-white/40">
-                  Get notified about album releases, shows, and exclusive content. Unsubscribe anytime.
+                  Get notified about album releases, shows, and exclusive
+                  content. Unsubscribe anytime.
                 </p>
               </form>
             </div>
@@ -44,7 +45,9 @@ export default function NewsletterUpdates() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12">
             <div>
-              <div className="text-sm font-body font-semibold uppercase tracking-widest text-white/50 mb-2">News</div>
+              <div className="text-sm font-body font-semibold uppercase tracking-widest text-white/50 mb-2">
+                News
+              </div>
               <h2 className="text-4xl md:text-6xl font-heading font-semibold uppercase tracking-tighter leading-none">
                 Latest <br /> Updates
               </h2>
@@ -125,4 +128,4 @@ export default function NewsletterUpdates() {
       </section>
     </>
   );
- }
+}
