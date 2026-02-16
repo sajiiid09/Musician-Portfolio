@@ -1,10 +1,27 @@
 'use client';
 
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, Variants } from 'framer-motion';
 import VinylCard from './VinylCard';
 import { ALBUM_DEAR_MELANCHOLIA, SINGLE_SINNER } from '@/lib/assets';
 import { FaSpotify, FaYoutube } from 'react-icons/fa';
+
+// Animation variants
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const staggerContainer: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.1 },
+  },
+};
 
 // --- CONFIGURATION ---
 const RELEASES = [
@@ -59,7 +76,7 @@ const StreamButton = ({
     <span className="shrink-0 transition-transform group-hover:scale-110">
       {icon}
     </span>
-    <span className="text-xs font-bold uppercase tracking-widest whitespace-nowrap">
+    <span className="text-xs font-body font-bold uppercase tracking-widest whitespace-nowrap">
       {label}
     </span>
   </a>
@@ -98,7 +115,7 @@ export default function MusicSection() {
           >
             <motion.h1
               style={{ scale: scrollScale, opacity: scrollOpacity }}
-              className="text-[18vw] md:text-[16vw] font-semibold leading-none tracking-tighter text-white select-none will-change-transform text-center"
+              className="text-[18vw] md:text-[16vw] font-heading font-semibold leading-none tracking-tighter text-white select-none will-change-transform text-center"
             >
               DISCOGRAPHY
             </motion.h1>
@@ -117,7 +134,7 @@ export default function MusicSection() {
               className="absolute top-0 left-0 w-full bg-white"
             />
             <div className="absolute top-1/2 -left-12 -translate-y-1/2 -rotate-90 origin-center whitespace-nowrap">
-              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-white/50">
+              <span className="text-xs font-body font-semibold tracking-[0.2em] uppercase text-white/50">
                 Featured Releases
               </span>
             </div>
@@ -150,17 +167,21 @@ export default function MusicSection() {
 
             {/* Tracklist (Order 2 on Mobile) */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: true, margin: "-10%" }}
+              variants={staggerContainer}
               className="order-2 lg:order-1 space-y-6 md:space-y-8"
             >
-              <h2 className="text-3xl md:text-5xl font-semibold uppercase tracking-tight text-center md:text-left">
+              <motion.h2 
+                variants={fadeInUp}
+                className="text-3xl md:text-5xl font-heading font-semibold uppercase tracking-tight text-center md:text-left"
+              >
                 {ALBUM_DEAR_MELANCHOLIA.title}
-              </h2>
+              </motion.h2>
 
-              <div className="space-y-2 md:space-y-4">
-                <h3 className="text-xs md:text-sm font-space uppercase tracking-[0.2em] text-white/60 mb-4 md:mb-6 text-center md:text-left">
+              <motion.div variants={fadeInUp} className="space-y-2 md:space-y-4">
+                <h3 className="text-xs md:text-sm font-body uppercase tracking-[0.2em] text-white/60 mb-4 md:mb-6 text-center md:text-left">
                   Tracklist
                 </h3>
                 {ALBUM_DEAR_MELANCHOLIA.tracks.map((track) => (
@@ -176,10 +197,10 @@ export default function MusicSection() {
                     </span>
                   </div>
                 ))}
-              </div>
+              </motion.div>
 
               {/* Action Buttons: Full width on mobile */}
-              <div className="flex flex-col md:flex-row gap-3 pt-4 w-full">
+              <motion.div variants={fadeInUp} className="flex flex-col md:flex-row gap-3 pt-4 w-full">
                 <StreamButton
                   primary
                   href={RELEASES[0].links.spotify}
@@ -191,28 +212,30 @@ export default function MusicSection() {
                   icon={ICONS.youtube("w-5 h-5 md:w-6 md:h-6")}
                   label="Watch on YouTube"
                 />
-              </div>
+              </motion.div>
             </motion.div>
           </div>
 
           {/* === RELEASE 2: SINNER (SINGLE) === */}
           <div className="flex flex-col items-center pb-20 md:pb-60 border-t border-white/5 pt-24 md:pt-40">
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: true, margin: "-10%" }}
+              variants={staggerContainer}
               className="flex flex-col items-center gap-8 md:gap-12 w-full max-w-3xl"
             >
-              <div className="text-center space-y-2 md:space-y-4">
-                <h3 className="text-xs md:text-sm font-space uppercase tracking-[0.3em] text-[#B48D5C]">
+              <motion.div variants={fadeInUp} className="text-center space-y-2 md:space-y-4">
+                <h3 className="text-xs md:text-sm font-body uppercase tracking-[0.3em] text-[#B48D5C]">
                   Latest Single
                 </h3>
-                <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tighter">
+                <h2 className="text-4xl md:text-6xl font-heading font-bold uppercase tracking-tighter">
                   {SINGLE_SINNER.title}
                 </h2>
-              </div>
+              </motion.div>
 
-              <a
+              <motion.a
+                variants={fadeInUp}
                 href={RELEASES[1].links.spotify}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -222,10 +245,10 @@ export default function MusicSection() {
                   title={SINGLE_SINNER.title}
                   coverImage={SINGLE_SINNER.cover}
                 />
-              </a>
+              </motion.a>
 
               {/* Action Buttons */}
-              <div className="flex flex-col md:flex-row justify-center gap-3 w-full">
+              <motion.div variants={fadeInUp} className="flex flex-col md:flex-row justify-center gap-3 w-full">
                 <StreamButton
                   primary
                   href={RELEASES[1].links.spotify}
@@ -237,7 +260,7 @@ export default function MusicSection() {
                   icon={ICONS.youtube("w-5 h-5 md:w-6 md:h-6")}
                   label="Watch Video"
                 />
-              </div>
+              </motion.div>
             </motion.div>
           </div>
 

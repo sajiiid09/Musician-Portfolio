@@ -63,7 +63,7 @@ export default function VinylCard({ title, coverImage }: VinylCardProps) {
           <div className="absolute inset-0 flex items-center justify-center">
              <div className="w-[30%] aspect-square bg-[#A7F3D0] rounded-full flex flex-col items-center justify-center text-center p-2 shadow-inner">
                 <img src={ASSETS.logo} className="w-16 opacity-80 mb-1" alt="Logo" />
-                <p className="text-[0.6rem] font-semibold uppercase leading-tight tracking-tighter text-black/80 line-clamp-2 max-w-[80%]">
+                <p className="text-[0.6rem] font-body font-semibold uppercase leading-tight tracking-tighter text-black/80 line-clamp-2 max-w-[80%]">
                     {title}
                 </p>
              </div>
@@ -124,7 +124,7 @@ export default function VinylCard({ title, coverImage }: VinylCardProps) {
                         <path id="textCurve" d="M 50 50 m -37 0 a 37 37 0 1 1 74 0 a 37 37 0 1 1 -74 0" fill="transparent" />
                         
                         {/* 3. The Text itself */}
-                        <text className="text-[10px] font-medium uppercase tracking-[0.18em] fill-black">
+                        <text className="text-[10px] font-body font-medium uppercase tracking-[0.18em] fill-black">
                             <textPath href="#textCurve" startOffset="0%">
                                 View More Details • View More Details •
                             </textPath>

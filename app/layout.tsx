@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
-import { Inter, Oswald } from "next/font/google";
+import { Cinzel, Archivo } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+// Cinzel for headings - elegant, classic display font
+const cinzel = Cinzel({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-cinzel",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  display: "swap",
 });
 
-const oswald = Oswald({
+// Archivo for body text - modern, highly readable
+const archivo = Archivo({
   subsets: ["latin"],
-  variable: "--font-oswald",
+  variable: "--font-archivo",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
 });
 
 import { NavProvider } from "./context/NavContext";
@@ -30,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${oswald.variable} font-sans antialiased bg-black text-white`}
+        className={`${cinzel.variable} ${archivo.variable} font-body antialiased bg-black text-white`}
       >
         <NavProvider>
           <Navbar />

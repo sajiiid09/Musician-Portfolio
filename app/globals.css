@@ -1,13 +1,32 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-oswald);
+  /* Cinzel for headings - elegant display font */
+  --font-heading: var(--font-cinzel);
+  /* Archivo for body text - modern and readable */
+  --font-body: var(--font-archivo);
 }
 
 @layer base {
   body {
     background-color: #000000;
     color: #ffffff;
+    font-family: var(--font-archivo), system-ui, sans-serif;
+  }
+  
+  /* Ensure all headings use Cinzel by default */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-cinzel), serif;
+  }
+}
+
+/* Utility classes for explicit font usage */
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-cinzel), serif;
+  }
+  
+  .font-body {
+    font-family: var(--font-archivo), system-ui, sans-serif;
   }
 }

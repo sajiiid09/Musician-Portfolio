@@ -6,6 +6,7 @@ import { NavbarColorContext, NavbarContext } from '@/app/context/NavContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import { LOGOS } from '@/lib/assets';
 import { FaInstagram, FaFacebook } from 'react-icons/fa';
+import Image from 'next/image';
 
 // Define types for your Context
 type NavbarContextType = [boolean, React.Dispatch<React.SetStateAction<boolean>>];
@@ -13,7 +14,6 @@ type NavbarColorContextType = [string, React.Dispatch<React.SetStateAction<strin
 
 const Navbar = () => {
     const pathname = usePathname();
-    const navGreenRef = useRef<HTMLDivElement>(null);
 
     const navbarContext = useContext(NavbarContext);
     const navbarColorContext = useContext(NavbarColorContext);
@@ -54,19 +54,21 @@ const Navbar = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, ease: 'easeOut' }}
                     >
-                        <a href="/" className='flex items-center gap-5 cursor-pointer font-space hover:opacity-70 transition-opacity'>
-                            <img
+                        <a href="/" className='flex items-center gap-5 cursor-pointer hover:opacity-70 transition-opacity'>
+                            <Image
                                 src={LOGOS.symbolWhite}
                                 alt="Cremain Logo"
+                                width={80}
+                                height={80}
                                 className="h-16 lg:h-20 w-auto object-contain"
+                                priority
                             />
-                            {/* NOTE: Kept empty h1 as per your snippet */}
-                            <h1 className='text-2xl lg:text-3xl font-medium tracking-tighter'> </h1>
+                            <h1 className='text-2xl lg:text-3xl font-heading font-medium tracking-tighter'> </h1>
                         </a>
                     </motion.div>
 
                     {/* Nav Links Section - DESKTOP ONLY */}
-                    <nav className='hidden lg:flex items-center gap-10 text-[0.9rem] font-space font-medium tracking-[0.2em] uppercase'>
+                    <nav className='hidden lg:flex items-center gap-10 text-[0.9rem] font-body font-medium tracking-[0.2em] uppercase'>
                         {navLinks.map((link) => (
                             <a
                                 key={link.href}
@@ -113,6 +115,7 @@ const Navbar = () => {
                         <button
                             onClick={() => setNavOpen(!navOpen)}
                             className="lg:hidden flex flex-col justify-center items-center gap-1.5 w-8 h-8 z-50 focus:outline-none"
+                            aria-label="Toggle menu"
                         >
                             <motion.span
                                 animate={navOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
@@ -138,7 +141,7 @@ const Navbar = () => {
                         initial={{ y: "-100%" }}
                         animate={{ y: "0%" }}
                         exit={{ y: "-100%" }}
-                        transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }} // Bezier for premium feel
+                        transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
                         className="fixed inset-0 z-[90] bg-black text-white flex flex-col justify-center items-center lg:hidden"
                     >
                         <div className="flex flex-col items-center gap-8">
@@ -152,8 +155,8 @@ const Navbar = () => {
                                 >
                                     <a
                                         href={link.href}
-                                        onClick={() => setNavOpen(false)} // Close on click for redirect
-                                        className={`text-4xl font-space uppercase font-bold tracking-tighter hover:text-[#B48D5C] transition-colors ${pathname === link.href ? 'text-white' : 'text-white/50'
+                                        onClick={() => setNavOpen(false)}
+                                        className={`text-4xl font-heading uppercase font-bold tracking-tighter hover:text-[#B48D5C] transition-colors ${pathname === link.href ? 'text-white' : 'text-white/50'
                                             }`}
                                     >
                                         {link.label}
