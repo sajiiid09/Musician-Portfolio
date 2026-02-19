@@ -12,42 +12,42 @@ export const BAND_MEMBERS = [
     name: "Sakib",
     role: "Vocals",
     bio: "The human anchor providing haunting lyrics that trace the fault lines between grief and grace.",
-    img: "/Photos of Cremain /WhatsApp Image 2026-01-08 at 10.51.12 PM.jpeg",
+    img: "/Photos of Cremain /WhatsApp Image 2026-01-08 at 10.51.12 PM.webp",
   },
   {
     id: 2,
     name: "Labib",
     role: "Guitars",
     bio: "Crafts widescreen scales and elegiac melodies, driving the band's signature slow-burn builds.",
-    img: "/Photos of Cremain /TIS03294.JPG",
+    img: "/Photos of Cremain /TIS03294.webp",
   },
   {
     id: 3,
     name: "Ayman",
     role: "Guitars",
     bio: "Creates vast crescendos and layered textures that converge into thunderous finales.",
-    img: "/Photos/IMG-20251108-WA0076.png",
+    img: "/Photos/IMG-20251108-WA0076.webp",
   },
   {
     id: 4,
     name: "Irad",
     role: "Drums",
     bio: "Drives tectonic drums and cathartic shifts, steering the ensemble from minimalism to intensity.",
-    img: "/Photos/DSC_3587.jpg",
+    img: "/Photos/DSC_3587.webp",
   },
   {
     id: 5,
     name: "Siam",
     role: "Bass",
     bio: "Provides progressive precision and grounding depth, anchoring the band's complex rhythm.",
-    img: "/Photos/IMG_1907.jpg",
+    img: "/Photos/IMG_1907.webp",
   },
   {
     id: 6,
     name: "Shadman",
     role: "Keys",
     bio: "Architect of atmospheric glue, blending textures of loss and light for an immersive experience.",
-    img: "/Photos/IMG_3493.jpg",
+    img: "/Photos/IMG_3493.webp",
   },
 ] as const;
 
@@ -57,38 +57,38 @@ export const BAND_MEMBERS = [
 export const ALBUM_DEAR_MELANCHOLIA = {
   title: "Dear Melancholia",
   cover:
-    "/Dear Melancholia (Album Cover)/Cremain - Dear Melancholia Cover Artwork 2025 - Updated version 8.png",
+    "/Dear Melancholia (Album Cover)/Cremain - Dear Melancholia Cover Artwork 2025 - Updated version 8.webp",
   releaseYear: "2026",
   tracks: [
     {
       id: 1,
       title: "Ravens Calling",
-      cover: "/Dear Melancholia track artworks/1. Ravens Calling.jpg",
+      cover: "/Dear Melancholia track artworks /1. Ravens Calling.webp",
     },
     {
       id: 2,
       title: "Lost",
-      cover: "/Dear Melancholia track artworks/2. Lost.jpg",
+      cover: "/Dear Melancholia track artworks /2. Lost.webp",
     },
     {
       id: 3,
       title: "Nei",
-      cover: "/Dear Melancholia track artworks/3. Nei.jpg",
+      cover: "/Dear Melancholia track artworks /3. Nei.webp",
     },
     {
       id: 4,
       title: "Sinner",
-      cover: "/Dear Melancholia track artworks/4. Sinner.jpg",
+      cover: "/Dear Melancholia track artworks /4. Sinner.webp",
     },
     {
       id: 5,
       title: "Jonoshunnota",
-      cover: "/Dear Melancholia track artworks/5. Jonoshunnota.jpg",
+      cover: "/Dear Melancholia track artworks /5. Jonoshunnota.webp",
     },
     {
       id: 6,
       title: "Help",
-      cover: "/Dear Melancholia track artworks/6. Help.jpg",
+      cover: "/Dear Melancholia track artworks /6. Help.webp",
     },
   ],
 } as const;
@@ -99,33 +99,33 @@ export const ALBUM_DEAR_MELANCHOLIA = {
 export const SINGLE_SINNER = {
   title: "Sinner",
   video: "/Sinner Teasers /Sinner Teaser 3.mp4",
-  cover: "/Dear Melancholia track artworks /4. Sinner.jpg",
+  cover: "/Dear Melancholia track artworks /4. Sinner.webp",
 } as const;
 
 // ============================================
 // LOGOS
 // ============================================
 export const LOGOS = {
-  white: "/Logo and symbol/white-logo.png",
-  black: "/Logo and symbol/Black-logo.png",
-  symbolWhite: "/Logo and symbol/white copy Symbol.png",
-  symbolBlack: "/Logo and symbol/black copy Symbol.png",
+  white: "/Logo and symbol/white-logo.webp",
+  black: "/Logo and symbol/Black-logo.webp",
+  symbolWhite: "/Logo and symbol/white copy Symbol.webp",
+  symbolBlack: "/Logo and symbol/black copy Symbol.webp",
 } as const;
 
 // ============================================
 // GALLERY PHOTOS
 // ============================================
 export const GALLERY_PHOTOS = [
-  "/Photos/IMG_3493.jpg",
-  "/Photos/IMG_1907.jpg",
-  "/Photos/IMG_2892.png",
-  "/Photos/DSC_3587.jpg",
-  "/Photos/20251107_172929.png",
-  "/Photos/IMG_1917.jpg",
-  "/Photos/IMG-20251108-WA0076.png",
-  "/Photos/IMG_1920.jpg",
-  "/Photos/1.png",
-  "/Photos/IMG-20251108-WA0094.png",
+  "/Photos/IMG_3493.webp",
+  "/Photos/IMG_1907.webp",
+  "/Photos/IMG_2892.webp",
+  "/Photos/DSC_3587.webp",
+  "/Photos/20251107_172929.webp",
+  "/Photos/IMG_1917.webp",
+  "/Photos/IMG-20251108-WA0076.webp",
+  "/Photos/IMG_1920.webp",
+  "/Photos/1.webp",
+  "/Photos/IMG-20251108-WA0094.webp",
 ] as const;
 
 // ============================================
@@ -134,9 +134,9 @@ export const GALLERY_PHOTOS = [
 export const VINYL_ASSETS = {
   // Note: Vinyl record and sleeve images are not currently available in the public folder
   // Using placeholder URLs that should be replaced when available
-  sleeve: "/Logo and symbol/white-logo.png", // Fallback to logo
-  vinyl: "/Logo and symbol/white-logo.png", // Fallback to logo
-  logo: "/Logo and symbol/white-logo.png",
+  sleeve: "/Logo and symbol/white-logo.webp", // Fallback to logo
+  vinyl: "/Logo and symbol/white-logo.webp", // Fallback to logo
+  logo: "/Logo and symbol/white-logo.webp",
 } as const;
 
 // ============================================
@@ -149,7 +149,7 @@ export const STORE_PRODUCTS = [
     price: "$ 10.00 USD",
     originalPrice: "$ 12.00 USD",
     image:
-      "/Dear Melancholia (Album Cover)/Cremain - Dear Melancholia Cover Artwork 2025 - Updated version 8.png",
+      "/Dear Melancholia (Album Cover)/Cremain - Dear Melancholia Cover Artwork 2025 - Updated version 8.webp",
     category: "Digital",
     isSale: true,
   },
@@ -159,7 +159,7 @@ export const STORE_PRODUCTS = [
     price: "$ 30.00 USD",
     originalPrice: "$ 35.00 USD",
     image:
-      "/Dear Melancholia (Album Cover)/Cremain - Dear Melancholia Cover Artwork 2025 - Updated version 8.png",
+      "/Dear Melancholia (Album Cover)/Cremain - Dear Melancholia Cover Artwork 2025 - Updated version 8.webp",
     category: "Vinyl",
     isSale: true,
   },
@@ -168,7 +168,7 @@ export const STORE_PRODUCTS = [
     title: "Cremain T-Shirt - Black",
     price: "$ 25.00 USD",
     originalPrice: "$ 30.00 USD",
-    image: "/Logo and symbol/white-logo.png",
+    image: "/Logo and symbol/white-logo.webp",
     category: "Clothing",
     isSale: true,
   },
@@ -177,7 +177,7 @@ export const STORE_PRODUCTS = [
     title: "Cremain T-Shirt - White",
     price: "$ 25.00 USD",
     originalPrice: "$ 30.00 USD",
-    image: "/Logo and symbol/Black-logo.png",
+    image: "/Logo and symbol/Black-logo.webp",
     category: "Clothing",
     isSale: true,
   },
@@ -186,7 +186,7 @@ export const STORE_PRODUCTS = [
     title: "Cremain Logo Sticker Pack",
     price: "$ 5.00 USD",
     originalPrice: "$ 8.00 USD",
-    image: "/Logo and symbol/white copy Symbol.png",
+    image: "/Logo and symbol/white copy Symbol.webp",
     category: "Merch",
     isSale: true,
   },
@@ -196,7 +196,7 @@ export const STORE_PRODUCTS = [
     price: "$ 15.00 USD",
     originalPrice: "$ 20.00 USD",
     image:
-      "/Dear Melancholia (Album Cover)/Cremain - Dear Melancholia Cover Artwork 2025 - Updated version 8.png",
+      "/Dear Melancholia (Album Cover)/Cremain - Dear Melancholia Cover Artwork 2025 - Updated version 8.webp",
     category: "Print",
     isSale: true,
   },

@@ -331,7 +331,7 @@ const Band: React.FC = () => {
             </div>
             <div className="lg:w-1/2 relative aspect-[16/10] overflow-hidden bg-neutral-900 group">
               <Image
-                src="/Photos/IMG_2892.png"
+                src="/Photos/IMG_2892.webp"
                 alt="Cremain Origins"
                 fill
                 className="object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105"
@@ -359,7 +359,7 @@ const Band: React.FC = () => {
             </div>
             <div className="lg:w-1/2 relative aspect-[16/10] overflow-hidden bg-neutral-900 group">
               <Image
-                src="/Photos of Cremain /TIS03398.JPG"
+                src="/Photos of Cremain /TIS03398.webp"
                 alt="Cremain Live"
                 fill
                 className="object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105"

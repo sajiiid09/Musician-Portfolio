@@ -10,7 +10,7 @@ export default function ContactPage() {
       {/* --- BACKGROUND IMAGE LAYER --- */}
       <div className="fixed inset-0 z-0">
         <img
-          src="/Photos/IMG_1920.jpg"
+          src="/Photos/IMG_1920.webp"
           alt="Cremain Band"
           className="w-full h-full object-cover opacity-60"
         />
