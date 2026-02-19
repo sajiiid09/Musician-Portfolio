@@ -3,7 +3,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
 import { VINYL_ASSETS } from '@/lib/assets';
-import Image from 'next/image';
 
 interface VinylCardProps {
   title: string;
@@ -49,23 +48,21 @@ export default function VinylCard({ title, coverImage }: VinylCardProps) {
         
         {/* --- LAYER 1: The Vinyl Record (Back) --- */}
         <motion.div
-          className="absolute relative w-[94%] aspect-square rounded-full z-0"
+          className="absolute w-[94%] aspect-square rounded-full z-0"
           initial={{ x: 0, rotate: -90 }}
           animate={isHovered ? { x: "55%", rotate: 0 } : { x: 0, rotate: -90 }}
           transition={{ duration: 0.8, type: "spring", bounce: 0.25 }}
         >
           {/* Realistic Vinyl Image */}
-          <Image 
+          <img 
             src={ASSETS.vinyl} 
             alt="Vinyl Record" 
-            fill
-            sizes="(max-width: 640px) 94vw, 564px"
             className="w-full h-full object-contain drop-shadow-2xl"
           />
           {/* Center Sticker Label Content */}
           <div className="absolute inset-0 flex items-center justify-center">
              <div className="w-[30%] aspect-square bg-[#A7F3D0] rounded-full flex flex-col items-center justify-center text-center p-2 shadow-inner">
-                <Image src={ASSETS.logo} className="w-16 h-16 opacity-80 mb-1" alt="Logo" width={64} height={64} />
+                <img src={ASSETS.logo} className="w-16 opacity-80 mb-1" alt="Logo" />
                 <p className="text-[0.6rem] font-body font-semibold uppercase leading-tight tracking-tighter text-black/80 line-clamp-2 max-w-[80%]">
                     {title}
                 </p>
@@ -75,22 +72,18 @@ export default function VinylCard({ title, coverImage }: VinylCardProps) {
 
         {/* --- LAYER 2: The Sleeve (Middle) --- */}
         <div className="absolute inset-0 z-10 pointer-events-none">
-             <Image 
+             <img 
                 src={ASSETS.sleeve} 
                 alt="Sleeve Texture" 
-                fill
-                sizes="(max-width: 768px) 100vw, 600px"
                 className="w-full h-full object-cover opacity-90 mix-blend-multiply"
              />
         </div>
 
         {/* --- LAYER 3: Album Art (Top) --- */}
         <div className="relative z-20 w-full h-full bg-neutral-900 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden">
-          <Image 
+          <img 
             src={coverImage} 
             alt={title} 
-            fill
-            sizes="(max-width: 768px) 100vw, 600px"
             className="w-full h-full object-cover"
           />
           
