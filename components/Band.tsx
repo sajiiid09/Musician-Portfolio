@@ -4,7 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { BAND_MEMBERS, BIO } from "@/lib/assets";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -22,42 +22,42 @@ const LINEUP_DESCRIPTION = `The richness of Cremain's widescreen sound is the re
 The architecture is anchored by the "tectonic" percussion of Irad and the grounding bass of Siam, while Shadman's keys provide the essential atmospheric glue. The dual guitars of Labib and Ayman create the vast, "widescreen" scale that defines their crescendos. At the center of this wall of sound is Sakib, whose vocals and "lyrics that haunt" provide the human anchor to their "elegiac melodies." Together, they move from pin-drop minimalism to thunderous finales with a synchronicity that is rare for such a young ensemble.`;
 
 // Animation variants for the whole grid
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: {
     transition: { staggerChildren: 0.12 },
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: [0.215, 0.61, 0.355, 1] },
+    transition: { duration: 0.8, ease: [0.215, 0.61, 0.355, 1] as const },
   },
 };
 
 // Variants for the hover details
-const detailVariants = {
+const detailVariants: Variants = {
   initial: { opacity: 0, y: 15 },
   hover: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.33, 1, 0.68, 1], delay: 0.1 },
+    transition: { duration: 0.6, ease: [0.33, 1, 0.68, 1] as const, delay: 0.1 },
   },
 };
 
-const accentVariants = {
+const accentVariants: Variants = {
   initial: { opacity: 0, scale: 0.8 },
   hover: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { duration: 0.6, ease: "easeOut" as const },
   },
 };
 
-const fadeInUp = {
+const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,

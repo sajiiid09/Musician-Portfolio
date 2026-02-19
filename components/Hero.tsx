@@ -43,11 +43,14 @@ const Hero: React.FC = () => {
       >
         <video
           src={SINGLE_SINNER.video}
+          poster="/posters/hero.webp"
           autoPlay
           loop
           muted
           playsInline
           preload="metadata"
+          width={1920}
+          height={1080}
           className="w-full h-full object-cover opacity-60"
         />
         <div className="absolute inset-0 bg-black/20" />
