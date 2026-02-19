@@ -12,7 +12,7 @@
 
 # testing
 /coverage
-/public
+/public/_orig_assets_backup/
 # next.js
 /.next/
 /out/
