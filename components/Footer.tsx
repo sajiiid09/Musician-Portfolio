@@ -79,10 +79,22 @@ export default function Footer() {
             {/* Social Icons */}
             <div className="flex gap-6 mt-8">
               {[
-                { icon: FaInstagram, href: "https://instagram.com" },
-                { icon: FaFacebook, href: "https://facebook.com" },
-                { icon: FaYoutube, href: "https://youtube.com" },
-                { icon: FaSpotify, href: "https://spotify.com" },
+                {
+                  icon: FaInstagram,
+                  href: "https://www.instagram.com/cremainremain/",
+                },
+                {
+                  icon: FaFacebook,
+                  href: "https://www.facebook.com/cremainremain/",
+                },
+                {
+                  icon: FaYoutube,
+                  href: "https://www.youtube.com/@Cremainremain",
+                },
+                {
+                  icon: FaSpotify,
+                  href: "https://open.spotify.com/artist/5Z3tlDncw0rKyt7KKBz5ud?si=b2BjQ9wCRtCoCnNY9ET-3g",
+                },
               ].map((social, i) => (
                 <a
                   key={i}
@@ -119,7 +131,7 @@ export default function Footer() {
           <div className="block relative w-full overflow-hidden group select-none">
             <div className="relative">
               <div
-                className="relative whitespace-nowrap leading-[0.8] tracking-tighter font-body font-bold text-white/90 transition-transform duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:-translate-y-[100%] text-center"
+                className="relative whitespace-nowrap leading-[0.8] tracking-tighter font-heading font-bold text-white/90 transition-transform duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:-translate-y-[100%] text-center"
                 style={{ fontSize: "16vw" }}
               >
                 {/* Default State */}

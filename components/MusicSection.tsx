@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform, Variants } from 'framer-motion';
-import VinylCard from './VinylCard';
-import { ALBUM_DEAR_MELANCHOLIA, SINGLE_SINNER } from '@/lib/assets';
-import { FaSpotify, FaYoutube } from 'react-icons/fa';
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform, Variants } from "framer-motion";
+import VinylCard from "./VinylCard";
+import { ALBUM_DEAR_MELANCHOLIA, SINGLE_SINNER } from "@/lib/assets";
+import { FaSpotify, FaYoutube } from "react-icons/fa";
 
 // Animation variants
 const fadeInUp: Variants = {
@@ -29,7 +29,7 @@ const RELEASES = [
     type: "ALBUM",
     data: ALBUM_DEAR_MELANCHOLIA,
     links: {
-      youtube: "https://www.youtube.com/@Cremainremain",
+      youtube: "https://www.youtube.com/shorts/xLPHGCOjMC4",
       spotify:
         "https://open.spotify.com/artist/5Z3tlDncw0rKyt7KKBz5ud?si=rxijmsOzQ2a0uPFdSH5jkg",
     },
@@ -178,7 +178,7 @@ export default function MusicSection() {
               variants={staggerContainer}
               className="order-2 lg:order-1 space-y-6 md:space-y-8"
             >
-              <motion.h2 
+              <motion.h2
                 variants={fadeInUp}
                 className="text-3xl md:text-5xl font-heading font-semibold uppercase tracking-tight text-center md:text-left"
               >
