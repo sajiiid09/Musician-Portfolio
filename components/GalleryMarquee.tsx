@@ -15,10 +15,8 @@ const SPRING_OPTIONS = { stiffness: 100, damping: 30, restDelta: 0.001 };
 
 const ImageGrid = ({
   images,
-  priority = false,
 }: {
   images: string[];
-  priority?: boolean;
 }) => (
   <div className="flex w-full gap-4 px-4 overflow-visible">
     {images.map((src, idx) => (
@@ -32,7 +30,6 @@ const ImageGrid = ({
           alt={`Gallery image ${idx + 1}`}
           fill
           sizes="(max-width: 768px) 80vw, (max-width: 1200px) 35vw, 25vw"
-          priority={priority} // Load first row eagerly if near top of page
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 will-change-transform"
         />
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none" />
@@ -68,7 +65,7 @@ export default function GalleryMarquee() {
         style={{ x: x1 }}
         className="w-full will-change-transform transform-gpu" // GPU force
       >
-        <ImageGrid images={ROW_1_IMAGES} priority={true} />
+        <ImageGrid images={ROW_1_IMAGES} />
       </motion.div>
 
       {/* 2. INFINITE MARQUEE STRIP */}
