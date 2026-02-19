@@ -6,11 +6,11 @@ import { usePathname } from "next/navigation";
 // Sophisticated palette based on #B48D5C
 // We alternate slightly to create a "shimmer" or textured feel rather than a flat block
 const COLORS = [
-  "#7d6f5cff", // Base - Gold/Bronze
-  "#7d6f5cff",
-  "#7d6f5cff",
-  "#7d6f5cff",
-  "#7d6f5cff",
+  "#241904", // Base - Gold/Bronze
+  "#241904",
+  "#241904",
+  "#241904",
+  "#241904",
 ];
 
 export default function StairTransition() {
@@ -21,7 +21,10 @@ export default function StairTransition() {
       {/* Key is vital: it triggers the animation on route change.
         We wrap the "Stairs" in a fragment or container.
       */}
-      <div key={pathname} className="fixed inset-0 z-[9999] pointer-events-none flex">
+      <div
+        key={pathname}
+        className="fixed inset-0 z-[9999] pointer-events-none flex"
+      >
         <Stairs />
       </div>
     </AnimatePresence>
@@ -44,7 +47,7 @@ const Stairs = () => {
             custom={index} // Pass index directly for visual Left->Right order
             className="relative h-full w-full"
             style={{
-              backgroundColor: COLORS[index % COLORS.length]
+              backgroundColor: COLORS[index % COLORS.length],
             }}
           />
         );

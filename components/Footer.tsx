@@ -1,90 +1,153 @@
-import React from 'react';
-import Link from 'next/link';
-import { SITE_CONFIG } from '@/lib/assets';
+"use client";
+import React from "react";
+import Link from "next/link";
+import {
+  FaInstagram,
+  FaFacebook,
+  FaYoutube,
+  FaSpotify,
+  FaArrowRight,
+} from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-black border-t border-white/10 pt-20 pb-12 mb-4">
-      <div className="max-w-7xl mx-auto px-4">
-        {/* Top Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-24">
-          {/* Column 1: Sitemap */}
-          <div className="flex flex-col space-y-5">
-            <h4 className="text-lg font-normal uppercase tracking-[0.2em] text-white/40 mb-2">Sitemap</h4>
-            <Link href="/" className="text-base font-normal uppercase tracking-wider hover:text-white/50 transition-colors">Home</Link>
-            <Link href="/about" className="text-base font-normal uppercase tracking-wider hover:text-white/50 transition-colors">About</Link>
-            <Link href="/music" className="text-base font-normal uppercase tracking-wider hover:text-white/50 transition-colors">Music</Link>
-            <Link href="/contact" className="text-base font-normal uppercase tracking-wider hover:text-white/50 transition-colors">Contact</Link>
+    <footer className="relative w-full bg-black pt-20 pb-0 overflow-hidden">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-12 flex flex-col gap-20 md:gap-32">
+        {/* --- Top Footer Section --- */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
+          {/* Column 1: Navigation (Span 3) */}
+          <div className="md:col-span-3 flex flex-col space-y-8">
+            <h4 className="text-xs font-heading font-medium uppercase tracking-[0.3em] text-white/30">
+              Menu
+            </h4>
+            <div className="flex flex-col space-y-3">
+              {["Home", "About", "Music", "Contact"].map((item) => (
+                <Link
+                  key={item}
+                  href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+                  className="w-fit text-sm font-body font-light uppercase tracking-widest text-white/60 hover:text-white transition-all duration-300 hover:tracking-[0.2em]"
+                >
+                  {item}
+                </Link>
+              ))}
+            </div>
           </div>
 
-          {/* Column 2: Updates */}
-          <div className="flex flex-col space-y-5">
-            <h4 className="text-lg font-normal uppercase tracking-[0.2em] text-white/40 mb-2">updates</h4>
-            <Link href="/events" className="text-base font-normal uppercase tracking-wider hover:text-white/50 transition-colors">Events</Link>
-            <Link href="/news" className="text-base font-normal uppercase tracking-wider hover:text-white/50 transition-colors">News</Link>
-            <Link href="/store" className="text-base font-normal uppercase tracking-wider hover:text-white/50 transition-colors">Store</Link>
+          {/* Column 2: Updates (Span 3) */}
+          <div className="md:col-span-3 flex flex-col space-y-8">
+            <h4 className="text-xs font-heading font-medium uppercase tracking-[0.3em] text-white/30">
+              Explore
+            </h4>
+            <div className="flex flex-col space-y-3">
+              {["Events", "News", "Store", "EPK"].map((item) => (
+                <Link
+                  key={item}
+                  href={`/${item.toLowerCase().replace("epk", "about#epk")}`}
+                  className="w-fit text-sm font-body font-light uppercase tracking-widest text-white/60 hover:text-white transition-all duration-300 hover:tracking-[0.2em]"
+                >
+                  {item}
+                </Link>
+              ))}
+            </div>
           </div>
 
-          {/* Column 3: Utilities */}
-          <div className="flex flex-col space-y-5">
-            <h4 className="text-lg font-normal uppercase tracking-[0.2em] text-white/40 mb-2">Utilities</h4>
-            <Link href="/about#epk" className="text-base font-normal uppercase tracking-wider hover:text-white/50 transition-colors">EPK</Link>
-            <Link href="/instructions" className="text-base font-normal uppercase tracking-wider hover:text-white/50 transition-colors">Instructions</Link>
-            <Link href="/styleguide" className="text-base font-normal uppercase tracking-wider hover:text-white/50 transition-colors">Styleguide</Link>
-            <Link href="/licensing" className="text-base font-normal uppercase tracking-wider hover:text-white/50 transition-colors">Licensing</Link>
-            <Link href="/changelog" className="text-base font-normal uppercase tracking-wider hover:text-white/50 transition-colors">Change Log</Link>
-          </div>
-
-          {/* Column 4: Newsletter */}
-          <div className="flex flex-col space-y-6">
-            <h4 className="text-lg font-normal uppercase tracking-[0.2em] text-white/40 mb-2">Newsletter</h4>
-            <form className="w-full">
-              <div className="relative border-b border-white/30 pb-2">
+          {/* Column 3: Newsletter (Span 6) */}
+          <div className="md:col-span-6 flex flex-col space-y-8 md:pl-20">
+            <h4 className="text-xs font-heading font-medium uppercase tracking-[0.3em] text-white/30">
+              Stay Connected
+            </h4>
+            <form className="w-full max-w-md group">
+              <div className="relative flex items-center pb-4 transition-colors duration-500">
                 <input
                   type="email"
-                  placeholder="YOUR EMAIL"
-                  className="w-full bg-transparent text-white text-base font-normal uppercase tracking-widest placeholder-white/30 focus:outline-none"
+                  placeholder="ENTER YOUR EMAIL"
+                  className="w-full bg-transparent text-white text-sm font-body font-light uppercase tracking-widest placeholder-white/20 focus:outline-none border-b border-white/10 focus:border-white transition-colors duration-300 pb-2"
                   required
                 />
                 <button
                   type="submit"
-                  className="absolute right-0 top-1/2 -translate-y-1/2 text-base font-normal uppercase tracking-[0.15em] hover:text-white/60 transition-colors"
+                  className="absolute right-0 top-0 bottom-4 text-white/40 hover:text-white transition-colors duration-300"
                 >
-                  Submit
+                  <FaArrowRight className="w-4 h-4 transform -rotate-45 group-focus-within:rotate-0 transition-transform duration-500" />
                 </button>
               </div>
-              <p className="mt-4 text-base font-normal text-white/30 leading-relaxed">
+              <p className="mt-4 text-[10px] font-body text-white/20 uppercase tracking-wider leading-relaxed">
                 Join our newsletter for the latest updates. Unsubscribe anytime.
               </p>
             </form>
+
+            {/* Social Icons */}
+            <div className="flex gap-6 mt-8">
+              {[
+                {
+                  icon: FaInstagram,
+                  href: "https://www.instagram.com/cremainremain/",
+                },
+                {
+                  icon: FaFacebook,
+                  href: "https://www.facebook.com/cremainremain/",
+                },
+                {
+                  icon: FaYoutube,
+                  href: "https://www.youtube.com/@Cremainremain",
+                },
+                {
+                  icon: FaSpotify,
+                  href: "https://open.spotify.com/artist/5Z3tlDncw0rKyt7KKBz5ud?si=b2BjQ9wCRtCoCnNY9ET-3g",
+                },
+              ].map((social, i) => (
+                <a
+                  key={i}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/40 hover:text-[#BE8118] transition-colors duration-300 transform hover:scale-110"
+                >
+                  <social.icon className="w-5 h-5" />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Bottom Footer */}
-        <div className="flex flex-col md:flex-row justify-between items-end border-t border-white/10 pt-12">
-          <div className="flex flex-col space-y-6 mb-12 md:mb-0">
-            {/* Social Icons Placeholder */}
-            <div className="flex space-x-6">
-              <div className="w-8 h-8 border border-white/20 rounded-full flex items-center justify-center hover:bg-white hover:border-white transition-all duration-300 group cursor-pointer">
-                <div className="w-2 h-2 bg-white group-hover:bg-black rounded-full" />
-              </div>
-              <div className="w-8 h-8 border border-white/20 rounded-full flex items-center justify-center hover:bg-white hover:border-white transition-all duration-300 group cursor-pointer">
-                <div className="w-2 h-2 bg-white group-hover:bg-black rounded-full" />
-              </div>
-              <div className="w-8 h-8 border border-white/20 rounded-full flex items-center justify-center hover:bg-white hover:border-white transition-all duration-300 group cursor-pointer">
-                <div className="w-2 h-2 bg-white group-hover:bg-black rounded-full" />
-              </div>
+        {/* --- Bottom Footer Section --- */}
+        <div className="w-full flex flex-col gap-12">
+          {/* Metadata Row */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end px-2">
+            <div className="flex flex-col gap-2 mb-8 md:mb-0">
+              <span className="text-[10px] font-body text-white/30 uppercase tracking-[0.2em]">
+                Dhaka, Bangladesh
+              </span>
             </div>
-            
-            <div className="flex flex-col space-y-1 text-base font-normal text-white/40 uppercase tracking-[0.15em]">
-              <span>Powered by Next.js</span>
-              <span>©2026 Cremain. All rights reserved.</span>
+
+            <div className="flex gap-8">
+              <span className="text-[10px] font-body text-white/30 uppercase tracking-[0.2em]">
+                © 2026 Cremain. All rights reserved.
+              </span>
             </div>
           </div>
 
-          {/* Large Brand Name - The only bold element as requested */}
-          <div className="text-6xl md:text-8xl lg:text-9xl font-display font-semibold uppercase tracking-tighter leading-none select-none text-white/90">
-            Cremain
+          {/* Massive Animated Text - Resized to fit screen */}
+          <div className="block relative w-full overflow-hidden group select-none">
+            <div className="relative">
+              <div
+                className="relative whitespace-nowrap leading-[0.8] tracking-tighter font-heading font-bold text-white/90 transition-transform duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:-translate-y-[100%] text-center"
+                style={{ fontSize: "16vw" }}
+              >
+                {/* Default State */}
+                <div className="block origin-bottom transition-opacity duration-500 group-hover:opacity-20">
+                  CREMAIN
+                </div>
+
+                {/* Hover Reveal State - Color Updated to Darker Shade */}
+                {/* Adjusted 'top' to allow a peek from the bottom */}
+                <div className="absolute top-[85%] left-0 w-full flex items-center justify-center transition-transform duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:top-full">
+                  <span className="text-[#9C6B13] tracking-tighter opacity-50 group-hover:opacity-100 transition-opacity duration-500">
+                    REMAINS
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

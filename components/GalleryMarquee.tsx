@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React, { useRef } from 'react';
-import Image from 'next/image'; // 1. Use Next.js Image for performance
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { GALLERY_PHOTOS } from '@/lib/assets';
+import React, { useRef } from "react";
+import Image from "next/image"; // 1. Use Next.js Image for performance
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { GALLERY_PHOTOS } from "@/lib/assets";
 
 // Split gallery photos into two rows
 const ROW_1_IMAGES = GALLERY_PHOTOS.slice(0, 5);
@@ -13,7 +13,13 @@ const ROW_2_IMAGES = GALLERY_PHOTOS.slice(5, 10);
 // stiness: higher = more responsive, damping: higher = less oscillation
 const SPRING_OPTIONS = { stiffness: 100, damping: 30, restDelta: 0.001 };
 
-const ImageGrid = ({ images, priority = false }: { images: string[], priority?: boolean }) => (
+const ImageGrid = ({
+  images,
+  priority = false,
+}: {
+  images: string[];
+  priority?: boolean;
+}) => (
   <div className="flex w-full gap-4 px-4 overflow-visible">
     {images.map((src, idx) => (
       <div
@@ -40,7 +46,7 @@ export default function GalleryMarquee() {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"]
+    offset: ["start end", "end start"],
   });
 
   // 2. SMOOTHING: Wrap the raw scroll input in a spring
@@ -57,7 +63,6 @@ export default function GalleryMarquee() {
       ref={containerRef}
       className="w-full bg-black overflow-hidden py-0"
     >
-
       {/* 1. TOP ROW (Moves Left -> Right) */}
       <motion.div
         style={{ x: x1 }}
@@ -74,14 +79,13 @@ export default function GalleryMarquee() {
           animate={{ x: "-50%" }}
           transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
         >
-
           {/* Loop Set 1 */}
           <div className="flex min-w-full items-center flex-none justify-around">
             {[1, 2, 3, 4].map((item) => (
               <span
                 key={item}
-                className="mx-8 text-6xl md:text-8xl lg:text-9xl font-semibold uppercase tracking-tighter text-transparent select-none will-change-transform"
-                style={{ WebkitTextStroke: '1px rgba(255,255,255,0.8)' }}
+                className="mx-8 text-6xl md:text-8xl lg:text-9xl font-heading font-semibold uppercase tracking-tighter text-transparent select-none will-change-transform"
+                style={{ WebkitTextStroke: "1px rgba(255,255,255,0.8)" }}
               >
                 CREMAIN REMAINS
               </span>
@@ -93,14 +97,13 @@ export default function GalleryMarquee() {
             {[1, 2, 3, 4].map((item) => (
               <span
                 key={item}
-                className="mx-8 text-6xl md:text-8xl lg:text-9xl font-semibold uppercase tracking-tighter text-transparent select-none will-change-transform"
-                style={{ WebkitTextStroke: '1px rgba(255,255,255,0.8)' }}
+                className="mx-8 text-6xl md:text-8xl lg:text-9xl font-heading font-semibold uppercase tracking-tighter text-transparent select-none will-change-transform"
+                style={{ WebkitTextStroke: "1px rgba(255,255,255,0.8)" }}
               >
                 CREMAIN REMAINS
               </span>
             ))}
           </div>
-
         </motion.div>
       </div>
 
@@ -111,7 +114,6 @@ export default function GalleryMarquee() {
       >
         <ImageGrid images={ROW_2_IMAGES} />
       </motion.div>
-
     </section>
   );
 }
