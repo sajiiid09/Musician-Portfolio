@@ -70,7 +70,6 @@ const Navbar = () => {
                 width={80}
                 height={80}
                 className="h-16 lg:h-20 w-auto object-contain"
-                priority
               />
               <h1 className="text-2xl lg:text-3xl font-heading font-medium tracking-tighter">
                 {" "}
