@@ -65,7 +65,7 @@ export default function NewsletterUpdates() {
             <Link href="/music" className="group cursor-pointer">
               <div className="relative aspect-[4/3] bg-neutral-800 mb-6 overflow-hidden">
                 <Image
-                  src="/Dear Melancholia track artworks /4. Sinner.webp"
+                  src="/Dear Melancholia track artworks/4. Sinner.webp"
                   alt="Sinner"
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"

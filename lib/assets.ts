@@ -12,14 +12,14 @@ export const BAND_MEMBERS = [
     name: "Sakib",
     role: "Vocals",
     bio: "The human anchor providing haunting lyrics that trace the fault lines between grief and grace.",
-    img: "/Photos of Cremain /WhatsApp Image 2026-01-08 at 10.51.12 PM.webp",
+    img: "/Photos of Cremain/WhatsApp Image 2026-01-08 at 10.51.12 PM.webp",
   },
   {
     id: 2,
     name: "Labib",
     role: "Guitars",
     bio: "Crafts widescreen scales and elegiac melodies, driving the band's signature slow-burn builds.",
-    img: "/Photos of Cremain /TIS03294.webp",
+    img: "/Photos of Cremain/TIS03294.webp",
   },
   {
     id: 3,
@@ -63,32 +63,32 @@ export const ALBUM_DEAR_MELANCHOLIA = {
     {
       id: 1,
       title: "Ravens Calling",
-      cover: "/Dear Melancholia track artworks /1. Ravens Calling.webp",
+      cover: "/Dear Melancholia track artworks/1. Ravens Calling.webp",
     },
     {
       id: 2,
       title: "Lost",
-      cover: "/Dear Melancholia track artworks /2. Lost.webp",
+      cover: "/Dear Melancholia track artworks/2. Lost.webp",
     },
     {
       id: 3,
       title: "Nei",
-      cover: "/Dear Melancholia track artworks /3. Nei.webp",
+      cover: "/Dear Melancholia track artworks/3. Nei.webp",
     },
     {
       id: 4,
       title: "Sinner",
-      cover: "/Dear Melancholia track artworks /4. Sinner.webp",
+      cover: "/Dear Melancholia track artworks/4. Sinner.webp",
     },
     {
       id: 5,
       title: "Jonoshunnota",
-      cover: "/Dear Melancholia track artworks /5. Jonoshunnota.webp",
+      cover: "/Dear Melancholia track artworks/5. Jonoshunnota.webp",
     },
     {
       id: 6,
       title: "Help",
-      cover: "/Dear Melancholia track artworks /6. Help.webp",
+      cover: "/Dear Melancholia track artworks/6. Help.webp",
     },
   ],
 } as const;
@@ -98,8 +98,8 @@ export const ALBUM_DEAR_MELANCHOLIA = {
 // ============================================
 export const SINGLE_SINNER = {
   title: "Sinner",
-  video: "/Sinner Teasers /Sinner Teaser 3.mp4",
-  cover: "/Dear Melancholia track artworks /4. Sinner.webp",
+  video: "/Sinner Teasers/Sinner Teaser 3.mp4",
+  cover: "/Dear Melancholia track artworks/4. Sinner.webp",
 } as const;
 
 // ============================================
