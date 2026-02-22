@@ -3,7 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: "standalone",
   images: {
-    unoptimized: true,
+    loader: "custom",
+    loaderFile: "./lib/cloudflare-image-loader.ts",
     qualities: [75, 85],
   },
   outputFileTracingRoot: process.cwd(),

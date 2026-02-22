@@ -6,6 +6,9 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Band from "@/components/Band";
 import EPKSection from "@/components/EPKSection";
+import { buildPageMetadata } from "@/lib/seo";
+
+export const metadata = buildPageMetadata("/about");
 
 export default function About() {
   return (
