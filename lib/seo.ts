@@ -7,7 +7,7 @@ import {
   STREAMING_LINKS,
 } from "@/lib/assets";
 
-const DEFAULT_SITE_URL = "https://your-cloudflare-domain.com";
+const DEFAULT_SITE_URL = "https://cremainband.com";
 
 const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() || DEFAULT_SITE_URL;
 
