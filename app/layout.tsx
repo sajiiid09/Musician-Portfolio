@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
 import { Cinzel, Archivo } from "next/font/google";
+import Navbar from "@/components/Navbar";
+import SmoothScroll from "@/components/SmoothScroll";
+import { ROOT_METADATA, MUSIC_GROUP_JSON_LD } from "@/lib/seo";
+import { NavProvider } from "./context/NavContext";
+import Template from "./template";
 import "./globals.css";
 
 // Cinzel for headings - elegant, classic display font
@@ -18,16 +23,7 @@ const archivo = Archivo({
   display: "swap",
 });
 
-import { NavProvider } from "./context/NavContext";
-import Navbar from "@/components/Navbar";
-import Template from "./template";
-import { SITE_CONFIG } from "@/lib/assets";
-import SmoothScroll from "@/components/SmoothScroll";
-
-export const metadata: Metadata = {
-  title: SITE_CONFIG.fullName,
-  description: `${SITE_CONFIG.tagline} ${SITE_CONFIG.genre} band from ${SITE_CONFIG.location}. Debut album "Dear Melancholia" coming soon.`,
-};
+export const metadata: Metadata = ROOT_METADATA;
 
 export default function RootLayout({
   children,
@@ -39,6 +35,10 @@ export default function RootLayout({
       <body
         className={`${cinzel.variable} ${archivo.variable} font-body antialiased bg-black text-white`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: MUSIC_GROUP_JSON_LD }}
+        />
         <SmoothScroll />
         <div className="noise-overlay" />
         <NavProvider>

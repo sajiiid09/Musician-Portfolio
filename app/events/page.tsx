@@ -5,6 +5,9 @@ import NewsletterUpdates from "@/components/NewsletterUpdates";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Band from "@/components/Band";
+import { buildPageMetadata } from "@/lib/seo";
+
+export const metadata = buildPageMetadata("/events");
 
 export default function Events() {
   return (
