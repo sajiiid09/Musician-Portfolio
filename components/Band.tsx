@@ -5,11 +5,12 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
-import { BAND_MEMBERS, BIO } from "@/lib/assets";
+import { BAND_MEMBERS, BIO, GALLERY_PHOTOS } from "@/lib/assets";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const CREMAIN_GOLD_LOGO = "/Logo and symbol/Cremain-Textured-Logo-Gold.png";
+const INTRO_PHOTOS = GALLERY_PHOTOS.slice(0, 5);
 
 interface BandMember {
   name: string;
@@ -193,6 +194,36 @@ const Band: React.FC = () => {
             </motion.p>
           </motion.div>
         </div>
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="max-w-7xl mx-auto mt-16 lg:mt-20 overflow-x-auto overflow-y-visible pb-6 lg:overflow-x-visible"
+        >
+          <div className="flex min-w-max gap-4 pr-6 lg:min-w-0 lg:pr-0">
+            {INTRO_PHOTOS.map((src, index) => (
+              <div
+                key={src}
+                className={`group relative w-[68vw] shrink-0 overflow-hidden bg-neutral-900/80 sm:w-[38vw] lg:w-1/5 ${
+                  index % 2 === 0 ? "lg:translate-y-4" : "lg:-translate-y-4"
+                }`}
+              >
+                <div className="relative aspect-[4/5] w-full">
+                  <Image
+                    src={src}
+                    alt={`Cremain atmosphere ${index + 1}`}
+                    fill
+                    sizes="(max-width: 640px) 68vw, (max-width: 1024px) 38vw, 18vw"
+                    className="object-cover opacity-55 saturate-75 transition duration-700 group-hover:scale-105 group-hover:opacity-80"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-black/40" />
+                  <div className="absolute inset-0 border border-white/10" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </section>
 
       {/* Lineup Description */}
