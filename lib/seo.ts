@@ -162,6 +162,11 @@ export function buildPageMetadata(path: string): Metadata {
 export const ROOT_METADATA: Metadata = {
   metadataBase: SITE_URL,
   ...buildPageMetadata("/"),
+  icons: {
+    icon: [{ url: LOGOS.texturedSymbol, type: "image/png" }],
+    shortcut: [{ url: LOGOS.texturedSymbol, type: "image/png" }],
+    apple: [{ url: LOGOS.texturedSymbol, type: "image/png" }],
+  },
 };
 
 export function getSitemapEntries(lastModified = new Date()) {

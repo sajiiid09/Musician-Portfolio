@@ -124,8 +124,9 @@ export const SINGLE_SINNER = {
 export const LOGOS = {
   white: "/Logo and symbol/white-logo.webp",
   black: "/Logo and symbol/Black-logo.webp",
-  symbolWhite: "/Logo and symbol/white copy Symbol.webp",
+  symbolWhite: "/Logo and symbol/Cremain-Textured-Symbol-Final.png",
   symbolBlack: "/Logo and symbol/black copy Symbol.webp",
+  texturedSymbol: "/Logo and symbol/Cremain-Textured-Symbol-Final.png",
 } as const;
 
 // ============================================

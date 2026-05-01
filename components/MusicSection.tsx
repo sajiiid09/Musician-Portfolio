@@ -29,7 +29,7 @@ const RELEASES = [
     type: "ALBUM",
     data: ALBUM_DEAR_MELANCHOLIA,
     links: {
-      youtube: "https://www.youtube.com/shorts/xLPHGCOjMC4",
+      youtube: "https://www.youtube.com/@Cremainremain",
       spotify:
         "https://open.spotify.com/artist/5Z3tlDncw0rKyt7KKBz5ud?si=rxijmsOzQ2a0uPFdSH5jkg",
     },
