@@ -5,9 +5,12 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
-import { BAND_MEMBERS, BIO } from "@/lib/assets";
+import { BAND_MEMBERS, BIO, GALLERY_PHOTOS } from "@/lib/assets";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const CREMAIN_GOLD_LOGO = "/Logo and symbol/Cremain-Textured-Logo-Gold.png";
+const INTRO_PHOTOS = GALLERY_PHOTOS.slice(0, 5);
 
 interface BandMember {
   name: string;
@@ -74,7 +77,7 @@ const Band: React.FC = () => {
 
   useGSAP(
     () => {
-      // Hero Text Reveal Animation
+      // Hero text and logo reveal animation
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: "#band",
@@ -116,24 +119,42 @@ const Band: React.FC = () => {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/[0.02] rounded-full blur-[150px]" />
         </div>
 
-        <div className="relative z-10 w-full px-4 text-center">
-          <h1 className="text-[12vw] md:text-[14vw] lg:text-[16vw] font-heading font-semibold uppercase tracking-tighter leading-none text-white/10 select-none">
-            <span>We Are </span>
-            <span>Cremain</span>
+        <div className="relative z-10 w-full translate-y-[7vh] px-4 text-center">
+          <h1 className="flex flex-col items-center justify-center gap-[0.02em] text-[12vw] md:text-[14vw] lg:text-[16vw] font-heading font-semibold uppercase tracking-tighter leading-none text-white/10 select-none">
+            <span className="whitespace-nowrap">We Are </span>
+            <span className="relative -mt-[0.22em] inline-flex w-[clamp(16rem,64vw,58rem)] shrink-0 items-center opacity-10">
+              <Image
+                src={CREMAIN_GOLD_LOGO}
+                alt=""
+                width={3720}
+                height={2408}
+                priority
+                className="h-auto w-full object-contain"
+                aria-hidden="true"
+              />
+            </span>
           </h1>
-          <h1 className="absolute top-0 left-0 right-0 mx-auto text-[12vw] md:text-[14vw] lg:text-[16vw] font-heading font-semibold uppercase tracking-tighter leading-none pointer-events-none select-none">
+          <h1 className="absolute top-0 left-0 right-0 mx-auto flex flex-col items-center justify-center gap-[0.02em] text-[12vw] md:text-[14vw] lg:text-[16vw] font-heading font-semibold uppercase tracking-tighter leading-none pointer-events-none select-none">
             <span
               ref={textPart1Ref}
               style={{ clipPath: "inset(0% 100% 0% 0%)" }}
-              className="text-white"
+              className="whitespace-nowrap text-white"
             >
               We Are{" "}
             </span>
             <span
               ref={textPart2Ref}
-              style={{ clipPath: "inset(0% 100% 0% 0%)", color: "#7c550f" }}
+              style={{ clipPath: "inset(0% 100% 0% 0%)" }}
+              className="relative -mt-[0.22em] inline-flex w-[clamp(16rem,64vw,58rem)] shrink-0 items-center"
             >
-              Cremain
+              <Image
+                src={CREMAIN_GOLD_LOGO}
+                alt="Cremain"
+                width={3720}
+                height={2408}
+                priority
+                className="h-auto w-full object-contain"
+              />
             </span>
           </h1>
         </div>
@@ -173,6 +194,36 @@ const Band: React.FC = () => {
             </motion.p>
           </motion.div>
         </div>
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="max-w-7xl mx-auto mt-16 lg:mt-20 overflow-x-auto overflow-y-visible pb-6 lg:overflow-x-visible"
+        >
+          <div className="flex min-w-max gap-4 pr-6 lg:min-w-0 lg:pr-0">
+            {INTRO_PHOTOS.map((src, index) => (
+              <div
+                key={src}
+                className={`group relative w-[68vw] shrink-0 overflow-hidden bg-neutral-900/80 sm:w-[38vw] lg:w-1/5 ${
+                  index % 2 === 0 ? "lg:translate-y-4" : "lg:-translate-y-4"
+                }`}
+              >
+                <div className="relative aspect-[4/5] w-full">
+                  <Image
+                    src={src}
+                    alt={`Cremain atmosphere ${index + 1}`}
+                    fill
+                    sizes="(max-width: 640px) 68vw, (max-width: 1024px) 38vw, 18vw"
+                    className="object-cover opacity-55 saturate-75 transition duration-700 group-hover:scale-105 group-hover:opacity-80"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-black/40" />
+                  <div className="absolute inset-0 border border-white/10" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </section>
 
       {/* Lineup Description */}
