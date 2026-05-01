@@ -9,6 +9,8 @@ import { BAND_MEMBERS, BIO } from "@/lib/assets";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const CREMAIN_GOLD_LOGO = "/Logo and symbol/Cremain-Textured-Logo-Gold.png";
+
 interface BandMember {
   name: string;
   role: string;
@@ -74,7 +76,7 @@ const Band: React.FC = () => {
 
   useGSAP(
     () => {
-      // Hero Text Reveal Animation
+      // Hero text and logo reveal animation
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: "#band",
@@ -116,24 +118,42 @@ const Band: React.FC = () => {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/[0.02] rounded-full blur-[150px]" />
         </div>
 
-        <div className="relative z-10 w-full px-4 text-center">
-          <h1 className="text-[12vw] md:text-[14vw] lg:text-[16vw] font-heading font-semibold uppercase tracking-tighter leading-none text-white/10 select-none">
-            <span>We Are </span>
-            <span>Cremain</span>
+        <div className="relative z-10 w-full translate-y-[7vh] px-4 text-center">
+          <h1 className="flex flex-col items-center justify-center gap-[0.02em] text-[12vw] md:text-[14vw] lg:text-[16vw] font-heading font-semibold uppercase tracking-tighter leading-none text-white/10 select-none">
+            <span className="whitespace-nowrap">We Are </span>
+            <span className="relative -mt-[0.22em] inline-flex w-[clamp(16rem,64vw,58rem)] shrink-0 items-center opacity-10">
+              <Image
+                src={CREMAIN_GOLD_LOGO}
+                alt=""
+                width={3720}
+                height={2408}
+                priority
+                className="h-auto w-full object-contain"
+                aria-hidden="true"
+              />
+            </span>
           </h1>
-          <h1 className="absolute top-0 left-0 right-0 mx-auto text-[12vw] md:text-[14vw] lg:text-[16vw] font-heading font-semibold uppercase tracking-tighter leading-none pointer-events-none select-none">
+          <h1 className="absolute top-0 left-0 right-0 mx-auto flex flex-col items-center justify-center gap-[0.02em] text-[12vw] md:text-[14vw] lg:text-[16vw] font-heading font-semibold uppercase tracking-tighter leading-none pointer-events-none select-none">
             <span
               ref={textPart1Ref}
               style={{ clipPath: "inset(0% 100% 0% 0%)" }}
-              className="text-white"
+              className="whitespace-nowrap text-white"
             >
               We Are{" "}
             </span>
             <span
               ref={textPart2Ref}
-              style={{ clipPath: "inset(0% 100% 0% 0%)", color: "#7c550f" }}
+              style={{ clipPath: "inset(0% 100% 0% 0%)" }}
+              className="relative -mt-[0.22em] inline-flex w-[clamp(16rem,64vw,58rem)] shrink-0 items-center"
             >
-              Cremain
+              <Image
+                src={CREMAIN_GOLD_LOGO}
+                alt="Cremain"
+                width={3720}
+                height={2408}
+                priority
+                className="h-auto w-full object-contain"
+              />
             </span>
           </h1>
         </div>
