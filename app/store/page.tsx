@@ -1,9 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import Footer from '@/components/Footer';
-import { STORE_PRODUCTS, ALBUM_DEAR_MELANCHOLIA } from '@/lib/assets';
+import { STORE_PRODUCTS } from '@/lib/assets';
 
 // --- Types ---
 type Product = {
@@ -17,7 +16,7 @@ type Product = {
 };
 
 // --- Cremain Products ---
-const PRODUCTS: Product[] = [...STORE_PRODUCTS].map((product, index) => ({
+const PRODUCTS: Product[] = [...STORE_PRODUCTS].map((product) => ({
   id: product.id,
   title: product.title,
   price: product.price,
@@ -27,7 +26,7 @@ const PRODUCTS: Product[] = [...STORE_PRODUCTS].map((product, index) => ({
   isSale: product.isSale || false,
 }));
 
-const CATEGORIES = ['All Products', 'Digital', 'Vinyl', 'Clothing', 'Merch'];
+const CATEGORIES = ['All Products', 'Digital', 'Vinyl', 'Merch'];
 
 export default function StorePage() {
   const [activeCategory, setActiveCategory] = useState('All Products');

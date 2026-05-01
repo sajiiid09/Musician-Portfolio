@@ -62,7 +62,7 @@ export const ALBUM_DEAR_MELANCHOLIA = {
   tracks: [
     {
       id: 1,
-      title: "Ravens Calling",
+      title: "A Raven's Calling",
       cover: "/Dear Melancholia track artworks/1. Ravens Calling.webp",
     },
     {
@@ -89,6 +89,22 @@ export const ALBUM_DEAR_MELANCHOLIA = {
       id: 6,
       title: "Help",
       cover: "/Dear Melancholia track artworks/6. Help.webp",
+    },
+    {
+      id: 7,
+      title: "Ahoban",
+    },
+    {
+      id: 8,
+      title: "Norokhadok",
+    },
+    {
+      id: 9,
+      title: "Sacred Place",
+    },
+    {
+      id: 10,
+      title: "The Lamented Obituary of a Solitary Soul",
     },
   ],
 } as const;
@@ -166,19 +182,19 @@ export const STORE_PRODUCTS = [
   {
     id: "3",
     title: "Cremain T-Shirt - Black",
-    price: "$ 25.00 USD",
+    price: "$ 15.00 USD",
     originalPrice: "$ 30.00 USD",
     image: "/Logo and symbol/white-logo.webp",
-    category: "Clothing",
+    category: "Merch",
     isSale: true,
   },
   {
     id: "4",
     title: "Cremain T-Shirt - White",
-    price: "$ 25.00 USD",
+    price: "$ 15.00 USD",
     originalPrice: "$ 30.00 USD",
     image: "/Logo and symbol/Black-logo.webp",
-    category: "Clothing",
+    category: "Merch",
     isSale: true,
   },
   {
@@ -193,11 +209,11 @@ export const STORE_PRODUCTS = [
   {
     id: "6",
     title: "Dear Melancholia - Poster",
-    price: "$ 15.00 USD",
+    price: "$ 10.00 USD",
     originalPrice: "$ 20.00 USD",
     image:
       "/Dear Melancholia (Album Cover)/Cremain - Dear Melancholia Cover Artwork 2025 - Updated version 8.webp",
-    category: "Print",
+    category: "Merch",
     isSale: true,
   },
 ] as const;
@@ -294,7 +310,6 @@ export const UPCOMING_EVENTS = [
     date: "TBA",
     venue: "Dear Melancholia Album Launch",
     address: "Dhaka, Bangladesh",
-    ticketLink: "#",
   },
 ] as const;
 
@@ -310,7 +325,7 @@ export const BIO = {
 
   origins: `Formed in 2022, Cremain emerged from Dhaka's underground rock scene as a six-piece collective. By blending the patient structures of post-rock with the intricate, odd-metered demands of progressive music, the band is proving that the most resonant emotional explorations often emerge from the most unexpected geographic origins. Their music represents a new standard for atmospheric intensity from South Asia.`,
 
-  influence: `Cremain distinguishes itself from the standard post-rock template by integrating the complexity of progressive rock. While they master the expansive crescendos associated with Explosions in the Sky, they also incorporate the "progressive precision" and "odd meters" one might expect from Karnivool. This duality ensures that their music is as intellectually rewarding as it is emotionally evocative. For fans of Alcest, Russian Circles, and Explosions in the Sky.`,
+  influence: `Cremain distinguishes itself from the standard post-rock template by integrating the complexity of progressive rock. While they master the expansive crescendos associated with Explosions in the Sky, they also incorporate the "progressive precision" and "odd meters" one might expect from Karnivool. This duality ensures that their music is as intellectually rewarding as it is emotionally evocative. For fans of Alcest, Opeth, and Explosions in the Sky.`,
 
   sound: `At the core of Cremain's identity is a philosophical commitment to tracing the "fault lines between grief and grace." Their music does not merely dwell in the dark; instead, it uses melancholic textures as a foundation for something transformative. The band's compositions are built on "tectonic drums" that ground the soaring, "widescreen" guitar work. By avoiding the stagnation of standard "slow-burn" formulas, Cremain creates a soundscape that feels constantly in motion. "Cremain sculpt grief into light."`,
 } as const;

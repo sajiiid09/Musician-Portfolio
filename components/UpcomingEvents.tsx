@@ -9,7 +9,6 @@ type Event = {
   date: string;
   venue: string;
   address: string;
-  ticketLink: string;
 };
 
 const events: Event[] = [...UPCOMING_EVENTS];
@@ -92,7 +91,7 @@ export default function UpcomingEvents() {
             <div>Date</div>
             <div>Venue</div>
             <div>Location</div>
-            <div className="text-right min-w-[140px]">Tickets</div>
+            <div className="text-right min-w-[140px]">Status</div>
           </div>
 
           {/* Event Rows */}
@@ -133,27 +132,14 @@ export default function UpcomingEvents() {
                 </div>
               </div>
 
-              {/* Action Button */}
+              {/* Action Status */}
               <div className="mt-4 md:mt-0 flex md:justify-end">
-                <a
-                  href={event.ticketLink}
-                  className="relative inline-flex items-center justify-center gap-2 px-6 py-3 overflow-hidden font-medium text-white transition-all duration-300 bg-white/5 border border-white/20 rounded-full group-hover:bg-white group-hover:text-black group-hover:border-white w-full md:w-auto text-xs uppercase tracking-[0.15em]"
+                <span
+                  className="relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-medium text-white/60 bg-white/5 border border-white/15 rounded-full w-full md:w-auto text-xs uppercase tracking-[0.15em] cursor-default"
+                  aria-label="Tickets coming soon"
                 >
-                  <span>Get Tickets</span>
-                  <svg
-                    className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </a>
+                  <span>Stay Tuned</span>
+                </span>
               </div>
 
               {/* Hover line accent */}
@@ -162,7 +148,7 @@ export default function UpcomingEvents() {
           ))}
         </motion.div>
 
-        {/* 'More Events' Button */}
+        {/* Events Status */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -173,22 +159,9 @@ export default function UpcomingEvents() {
           <p className="text-neutral-500 text-sm font-light">
             More shows coming soon. Stay tuned for updates.
           </p>
-          <button className="group inline-flex items-center gap-3 px-6 py-3 bg-white/5 border border-white/15 text-white/70 text-xs font-medium uppercase tracking-[0.15em] rounded-full hover:bg-white/10 hover:border-white/30 hover:text-white transition-all duration-300">
-            View All Events
-            <svg
-              className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </button>
+          <span className="inline-flex items-center gap-3 px-6 py-3 bg-white/5 border border-white/15 text-white/60 text-xs font-medium uppercase tracking-[0.15em] rounded-full cursor-default">
+            Stay Tuned
+          </span>
         </motion.div>
       </div>
     </section>
