@@ -108,7 +108,10 @@ const Band: React.FC = () => {
   }));
 
   return (
-    <div ref={containerRef} className="bg-black text-white font-body">
+    <div
+      ref={containerRef}
+      className="w-full max-w-full overflow-x-clip bg-black text-white font-body"
+    >
       {/* Hero Section */}
       <section
         id="band"
@@ -161,14 +164,17 @@ const Band: React.FC = () => {
       </section>
 
       {/* Intro Content */}
-      <section className="py-20 lg:py-32 px-4 sm:px-6 lg:px-24" id="epk">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24">
+      <section
+        className="w-full max-w-full overflow-x-clip px-4 py-20 sm:px-6 lg:px-24 lg:py-32"
+        id="epk"
+      >
+        <div className="mx-auto flex max-w-7xl flex-col gap-16 lg:flex-row lg:gap-24">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-10%" }}
             variants={fadeInUp}
-            className="lg:w-1/2"
+            className="min-w-0 max-w-full lg:w-1/2"
           >
             <span className="text-[10px] uppercase tracking-[0.3em] text-white/40 font-medium mb-6 block">
               About The Band
@@ -184,12 +190,18 @@ const Band: React.FC = () => {
             whileInView="visible"
             viewport={{ once: true, margin: "-10%" }}
             variants={containerVariants}
-            className="lg:w-1/2 flex flex-col gap-6 sm:gap-8 text-neutral-400 font-light leading-relaxed"
+            className="flex min-w-0 max-w-full flex-col gap-6 text-neutral-400 font-light leading-relaxed sm:gap-8 lg:w-1/2"
           >
-            <motion.p variants={itemVariants} className="text-base sm:text-lg">
+            <motion.p
+              variants={itemVariants}
+              className="max-w-full text-base break-words sm:text-lg"
+            >
               {BIO.main}
             </motion.p>
-            <motion.p variants={itemVariants} className="text-neutral-500">
+            <motion.p
+              variants={itemVariants}
+              className="max-w-full break-words text-neutral-500"
+            >
               {BIO.sound}
             </motion.p>
           </motion.div>
@@ -199,23 +211,23 @@ const Band: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-10%" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mx-auto mt-14 max-w-7xl overflow-x-auto overflow-y-hidden pb-4 lg:mt-20 lg:overflow-x-visible"
+          className="mx-auto mt-14 max-w-7xl snap-x overflow-x-auto overflow-y-hidden overscroll-x-contain pb-4 lg:mt-20 lg:overflow-x-visible"
         >
           <div className="flex min-w-max gap-4 pr-4 lg:min-w-0 lg:pr-0">
             {INTRO_PHOTOS.map((src, index) => (
               <div
                 key={src}
-                className={`relative w-[68vw] shrink-0 overflow-hidden bg-neutral-900/80 sm:w-[38vw] lg:w-1/5 ${
+                className={`relative w-[72vw] max-w-[18rem] shrink-0 snap-start overflow-hidden bg-neutral-900/80 sm:w-[38vw] sm:max-w-none lg:w-1/5 ${
                   index % 2 === 0 ? "lg:translate-y-4" : "lg:-translate-y-4"
                 }`}
               >
-                <div className="relative aspect-[4/5] w-full">
+                <div className="relative aspect-[5/4] w-full sm:aspect-[4/5]">
                   <Image
                     src={src}
                     alt={`Cremain atmosphere ${index + 1}`}
                     fill
-                    sizes="(max-width: 640px) 68vw, (max-width: 1024px) 38vw, 20vw"
-                    className="object-cover opacity-65 grayscale transition duration-500 hover:opacity-85 hover:grayscale-0"
+                    sizes="(max-width: 640px) 72vw, (max-width: 1024px) 38vw, 20vw"
+                    className="object-cover object-center opacity-65 grayscale transition duration-500 hover:opacity-85 hover:grayscale-0"
                   />
                   <div className="absolute inset-0 bg-black/25" />
                 </div>
@@ -226,8 +238,8 @@ const Band: React.FC = () => {
       </section>
 
       {/* Lineup Description */}
-      <section className="py-16 lg:py-28 px-4 sm:px-6 lg:px-24 bg-gradient-to-b from-neutral-900/20 to-neutral-900/40 border-y border-white/5">
-        <div className="max-w-5xl mx-auto">
+      <section className="w-full max-w-full overflow-x-clip border-y border-white/5 bg-gradient-to-b from-neutral-900/20 to-neutral-900/40 px-4 py-16 sm:px-6 lg:px-24 lg:py-28">
+        <div className="mx-auto max-w-5xl min-w-0">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -242,7 +254,7 @@ const Band: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-neutral-400 font-light leading-[1.8] text-base sm:text-lg lg:text-xl"
+            className="max-w-full text-base font-light leading-[1.8] break-words text-neutral-400 sm:text-lg lg:text-xl"
           >
             {LINEUP_DESCRIPTION}
           </motion.p>
@@ -250,8 +262,8 @@ const Band: React.FC = () => {
       </section>
 
       {/* Member Grid */}
-      <section className="py-20 lg:py-32 px-4 sm:px-6 lg:px-24">
-        <div className="max-w-7xl mx-auto">
+      <section className="w-full max-w-full overflow-x-clip px-4 py-20 sm:px-6 lg:px-24 lg:py-32">
+        <div className="mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -267,7 +279,7 @@ const Band: React.FC = () => {
             </h3>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-16">
             {bandMembers.map((member, i) => (
               <motion.div
                 key={i}
@@ -276,15 +288,15 @@ const Band: React.FC = () => {
                 whileHover="hover"
                 viewport={{ once: true, margin: "-5%" }}
                 variants={itemVariants}
-                className="group relative flex flex-col gap-6"
+                className="group relative flex min-w-0 max-w-full flex-col gap-6"
               >
                 {/* Image Container with Premium Interaction */}
-                <div className="relative aspect-[4/5] overflow-hidden bg-neutral-950 rounded-sm z-10">
+                <div className="relative z-10 aspect-[5/4] overflow-hidden rounded-sm bg-neutral-950 sm:aspect-[4/5]">
                   <Image
                     src={member.img}
                     alt={member.name}
                     fill
-                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 ease-out group-hover:scale-105"
+                    className="object-cover object-center grayscale transition-all duration-1000 ease-out group-hover:grayscale-0 md:group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
 
@@ -361,30 +373,30 @@ const Band: React.FC = () => {
       </section>
 
       {/* Narrative Sections */}
-      <section className="py-20 lg:py-32 px-4 sm:px-6 lg:px-24 bg-gradient-to-b from-black via-neutral-900/30 to-black">
-        <div className="max-w-7xl mx-auto flex flex-col gap-24 lg:gap-32">
+      <section className="w-full max-w-full overflow-x-clip bg-gradient-to-b from-black via-neutral-900/30 to-black px-4 py-20 sm:px-6 lg:px-24 lg:py-32">
+        <div className="mx-auto flex max-w-7xl flex-col gap-24 lg:gap-32">
           {/* Origins */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-10%" }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center"
+            className="flex min-w-0 max-w-full flex-col items-center gap-12 lg:flex-row lg:gap-20"
           >
-            <div className="lg:w-1/2 flex flex-col gap-6">
+            <div className="flex min-w-0 max-w-full flex-col gap-6 lg:w-1/2">
               <h2 className="text-2xl lg:text-3xl font-heading uppercase tracking-[0.15em] text-white/80">
                 <span style={{ color: "#7c550f" }}>Origins</span> & Evolution
               </h2>
-              <p className="text-neutral-400 font-light leading-[1.8] text-base sm:text-lg">
+              <p className="max-w-full text-base font-light leading-[1.8] break-words text-neutral-400 sm:text-lg">
                 {BIO.origins}
               </p>
             </div>
-            <div className="lg:w-1/2 relative aspect-[16/10] overflow-hidden bg-neutral-900 group">
+            <div className="group relative aspect-[4/3] w-full max-w-full overflow-hidden bg-neutral-900 sm:aspect-[16/10] lg:w-1/2">
               <Image
                 src="/Photos/IMG_2892.webp"
                 alt="Cremain Origins"
                 fill
-                className="object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105"
+                className="object-cover object-center opacity-70 transition-opacity duration-700 group-hover:opacity-100 md:group-hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-transparent" />
@@ -397,22 +409,22 @@ const Band: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-10%" }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col lg:flex-row-reverse gap-12 lg:gap-20 items-center"
+            className="flex min-w-0 max-w-full flex-col items-center gap-12 lg:flex-row-reverse lg:gap-20"
           >
-            <div className="lg:w-1/2 flex flex-col gap-6">
+            <div className="flex min-w-0 max-w-full flex-col gap-6 lg:w-1/2">
               <h2 className="text-2xl lg:text-3xl font-heading uppercase tracking-[0.15em] text-white/80">
                 Music & <span style={{ color: "#7c550f" }}>Influence</span>
               </h2>
-              <p className="text-neutral-400 font-light leading-[1.8] text-base sm:text-lg">
+              <p className="max-w-full text-base font-light leading-[1.8] break-words text-neutral-400 sm:text-lg">
                 {BIO.influence}
               </p>
             </div>
-            <div className="lg:w-1/2 relative aspect-[16/10] overflow-hidden bg-neutral-900 group">
+            <div className="group relative aspect-[4/3] w-full max-w-full overflow-hidden bg-neutral-900 sm:aspect-[16/10] lg:w-1/2">
               <Image
                 src="/Photos of Cremain/TIS03398.webp"
                 alt="Cremain Live"
                 fill
-                className="object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105"
+                className="object-cover object-center opacity-70 transition-opacity duration-700 group-hover:opacity-100 md:group-hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-tl from-black/40 via-transparent to-transparent" />
