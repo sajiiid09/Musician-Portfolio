@@ -1,22 +1,13 @@
 "use client";
 
-import React, { useContext, useRef, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { NavbarColorContext, NavbarContext } from "@/app/context/NavContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { LOGOS } from "@/lib/assets";
 import { FaInstagram, FaFacebook } from "react-icons/fa";
 import Image from "next/image";
-
-// Define types for your Context
-type NavbarContextType = [
-  boolean,
-  React.Dispatch<React.SetStateAction<boolean>>,
-];
-type NavbarColorContextType = [
-  string,
-  React.Dispatch<React.SetStateAction<string>>,
-];
+import Link from "next/link";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -29,7 +20,6 @@ const Navbar = () => {
   }
 
   const [navOpen, setNavOpen] = navbarContext;
-  const [navColor, setNavColor] = navbarColorContext;
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -52,7 +42,7 @@ const Navbar = () => {
   return (
     <>
       {/* --- MAIN HEADER --- */}
-      <div className="z-[100] fixed top-0 w-full flex items-center justify-between px-6 py-4 lg:px-10 lg:py-6 mix-blend-difference text-white">
+      <div className="z-[100] fixed top-0 w-full flex items-center justify-between px-4 py-3 sm:px-6 lg:px-10 lg:py-6 mix-blend-difference text-white">
         <div className="flex items-center gap-10 lg:gap-20 w-full justify-between">
           {/* Logo Section */}
           <motion.div
@@ -60,7 +50,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <a
+            <Link
               href="/"
               className="flex items-center gap-5 cursor-pointer hover:opacity-70 transition-opacity"
             >
@@ -69,18 +59,18 @@ const Navbar = () => {
                 alt="Cremain Logo"
                 width={80}
                 height={80}
-                className="h-16 lg:h-20 w-auto object-contain"
+                className="h-12 sm:h-14 lg:h-20 w-auto object-contain"
               />
               <h1 className="text-2xl lg:text-3xl font-heading font-medium tracking-tighter">
                 {" "}
               </h1>
-            </a>
+            </Link>
           </motion.div>
 
           {/* Nav Links Section - DESKTOP ONLY */}
           <nav className="hidden lg:flex items-center gap-10 text-[0.9rem] font-body font-medium tracking-[0.2em] uppercase">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className={`relative hover:opacity-70 transition-opacity ${pathname === link.href ? "text-white" : "text-white/60"}`}
@@ -95,12 +85,12 @@ const Navbar = () => {
                     transition={{ duration: 0.3, ease: "easeOut" }}
                   />
                 )}
-              </a>
+              </Link>
             ))}
           </nav>
 
           {/* Right Section: Icons + Mobile Trigger */}
-          <div className="flex items-center gap-5 lg:gap-8">
+          <div className="flex items-center gap-4 lg:gap-8">
             <a
               href="https://www.instagram.com/cremainremain/"
               target="_blank"
@@ -108,7 +98,7 @@ const Navbar = () => {
               className="cursor-pointer hover:scale-110 transition-transform hover:text-[#D7AF7E]"
               aria-label="Instagram"
             >
-              <FaInstagram className="w-6 h-6" />
+              <FaInstagram className="w-5 h-5 lg:w-6 lg:h-6" />
             </a>
             <a
               href="https://www.facebook.com/cremainremain/"
@@ -117,7 +107,7 @@ const Navbar = () => {
               className="cursor-pointer hover:scale-110 transition-transform hover:text-[#D7AF7E]"
               aria-label="Facebook"
             >
-              <FaFacebook className="w-6 h-6" />
+              <FaFacebook className="w-5 h-5 lg:w-6 lg:h-6" />
             </a>
 
             {/* --- MOBILE HAMBURGER (Hidden on lg) --- */}
@@ -162,7 +152,7 @@ const Navbar = () => {
                   exit={{ opacity: 0, y: 20 }}
                   transition={{ duration: 0.3, delay: 0.1 + i * 0.05 }}
                 >
-                  <a
+                  <Link
                     href={link.href}
                     onClick={() => setNavOpen(false)}
                     className={`text-4xl font-heading uppercase font-bold tracking-tighter hover:text-[#B48D5C] transition-colors ${
@@ -170,7 +160,7 @@ const Navbar = () => {
                     }`}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </motion.div>
               ))}
             </div>

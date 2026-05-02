@@ -7,10 +7,10 @@ export default function NewsletterUpdates() {
   return (
     <>
       {/* Newsletter Section */}
-      <section className="w-full py-20 border-b border-white/10">
+      <section className="w-full overflow-x-clip border-b border-white/10 py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <h2 className="text-4xl md:text-6xl font-heading font-semibold uppercase tracking-tighter leading-none">
+            <h2 className="text-4xl font-heading font-semibold uppercase leading-none tracking-tighter md:text-6xl">
               Join The <br /> Journey
             </h2>
 
@@ -41,20 +41,20 @@ export default function NewsletterUpdates() {
       </section>
 
       {/* News Grid Section */}
-      <section className="w-full py-20">
+      <section className="w-full overflow-x-clip py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12">
+          <div className="mb-12 flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
             <div>
               <div className="text-sm font-body font-semibold uppercase tracking-widest text-white/50 mb-2">
                 News
               </div>
-              <h2 className="text-4xl md:text-6xl font-heading font-semibold uppercase tracking-tighter leading-none">
+              <h2 className="text-4xl font-heading font-semibold uppercase leading-none tracking-tighter md:text-6xl">
                 Latest <br /> Updates
               </h2>
             </div>
             <Link
               href="/news"
-              className="mt-8 md:mt-0 px-6 py-2 border border-white text-sm font-body font-semibold uppercase tracking-wider hover:bg-[#B48D5C] hover:text-black transition-all duration-300"
+              className="px-6 py-2 border border-white text-sm font-body font-semibold uppercase tracking-wider hover:bg-[#B48D5C] hover:text-black transition-all duration-300"
             >
               More News
             </Link>
@@ -78,7 +78,7 @@ export default function NewsletterUpdates() {
                 <span>1.23.2026</span>
               </div>
               <h3 className="text-xl font-heading font-semibold uppercase tracking-wide group-hover:text-white/70 transition-colors">
-                "Sinner" - New Single Available Now
+                &quot;Sinner&quot; - New Single Available Now
               </h3>
             </Link>
 

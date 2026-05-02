@@ -103,13 +103,10 @@ export default function MusicSection() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full bg-black text-white"
-      // Height allows for the full transition sequence
-      style={{ minHeight: "350vh" }}
+      className="relative w-full min-h-[260vh] overflow-x-clip bg-black text-white md:min-h-[350vh]"
     >
       <div
-        className="hidden md:block absolute inset-0 pointer-events-none"
-        style={{ minHeight: "350vh" }}
+        className="absolute inset-0 hidden min-h-[350vh] pointer-events-none md:block"
       />
 
       {/* --- LAYER 0: STICKY TITLE --- */}
@@ -150,8 +147,8 @@ export default function MusicSection() {
 
         {/* Right Content */}
         <div className="flex flex-col px-4 md:px-20 pb-20 md:pb-0">
-          {/* Buffer: Massive buffer to ensure text fades out before content arrives */}
-          <div className="h-[100vh] w-full" />
+          {/* Buffer: keeps the title transition clear before release content arrives. */}
+          <div className="h-[55vh] w-full md:h-[100vh]" />
 
           {/* === RELEASE 1: DEAR MELANCHOLIA (ALBUM) === */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-24 items-center pb-32 md:pb-60">
@@ -161,7 +158,7 @@ export default function MusicSection() {
                 href={RELEASES[0].links.spotify}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="cursor-pointer transition-transform hover:scale-[1.02] w-[80vw] md:w-full max-w-[500px]"
+                className="w-[78vw] max-w-[500px] cursor-pointer transition-transform hover:scale-[1.02] sm:w-[70vw] md:w-full"
               >
                 <VinylCard
                   title={ALBUM_DEAR_MELANCHOLIA.title}
@@ -195,12 +192,12 @@ export default function MusicSection() {
                 {ALBUM_DEAR_MELANCHOLIA.tracks.map((track) => (
                   <div
                     key={track.id}
-                    className="flex items-center gap-4 md:gap-6 py-3 border-b border-white/10 group hover:bg-white/5 transition-colors cursor-default"
+                    className="flex items-start gap-4 border-b border-white/10 py-3 transition-colors cursor-default group hover:bg-white/5 md:items-center md:gap-6"
                   >
-                    <span className="text-white/40 font-mono text-xs md:text-sm w-6">
+                    <span className="w-6 shrink-0 text-xs text-white/40 font-mono md:text-sm">
                       {track.id.toString().padStart(2, "0")}
                     </span>
-                    <span className="text-white/80 font-medium text-sm md:text-base tracking-wide group-hover:text-white transition-colors truncate">
+                    <span className="min-w-0 text-sm font-medium leading-snug tracking-wide text-white/80 transition-colors break-words group-hover:text-white md:text-base">
                       {track.title}
                     </span>
                   </div>
@@ -253,7 +250,7 @@ export default function MusicSection() {
                 href={RELEASES[1].links.spotify}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="cursor-pointer transition-transform hover:scale-[1.02] w-[70vw] md:w-full max-w-[500px]"
+                className="w-[74vw] max-w-[500px] cursor-pointer transition-transform hover:scale-[1.02] sm:w-[60vw] md:w-full"
               >
                 <VinylCard
                   title={SINGLE_SINNER.title}
