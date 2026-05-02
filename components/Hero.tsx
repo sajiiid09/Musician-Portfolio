@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="text-white min-h-screen w-full bg-black relative overflow-hidden"
+      className="text-white min-h-[100svh] w-full bg-black relative overflow-hidden"
     >
       {/* Background Video with Next.js Image fallback for better performance */}
       <div
@@ -56,7 +56,7 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-black/20" />
       </div>
 
-      <div className="h-screen w-full relative overflow-hidden flex flex-col justify-between z-10">
+      <div className="h-[100svh] w-full relative overflow-hidden flex flex-col justify-between z-10">
         <HomeHeroText />
 
         <HomeBottomText />
@@ -66,7 +66,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
-          className="absolute bottom-10 right-6 lg:bottom-16 lg:right-16 flex flex-col gap-3 p-3
+          className="absolute bottom-8 right-4 hidden flex-col gap-3 p-3 sm:flex lg:bottom-16 lg:right-16
             bg-white/5 backdrop-blur-2xl border border-white/10 rounded-xl
             shadow-[0_8px_32px_rgba(0,0,0,0.5)]
             transition-all duration-500 hover:bg-white/10 hover:border-white/20 hover:scale-[1.02] hover:shadow-[0_12px_40px_rgba(0,0,0,0.6)]

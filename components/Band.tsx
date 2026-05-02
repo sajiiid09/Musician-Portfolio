@@ -112,17 +112,17 @@ const Band: React.FC = () => {
       {/* Hero Section */}
       <section
         id="band"
-        className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black"
+        className="relative h-[100svh] w-full overflow-hidden flex items-center justify-center bg-black"
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black z-0" />
         <div className="absolute inset-0 z-0">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/[0.02] rounded-full blur-[150px]" />
         </div>
 
-        <div className="relative z-10 w-full translate-y-[7vh] px-4 text-center">
-          <h1 className="flex flex-col items-center justify-center gap-[0.02em] text-[12vw] md:text-[14vw] lg:text-[16vw] font-heading font-semibold uppercase tracking-tighter leading-none text-white/10 select-none">
+        <div className="relative z-10 w-full translate-y-[10vh] px-4 text-center md:translate-y-[7vh]">
+          <h1 className="flex flex-col items-center justify-center gap-[0.02em] text-[18vw] md:text-[14vw] lg:text-[16vw] font-heading font-semibold uppercase tracking-tighter leading-none text-white/10 select-none">
             <span className="whitespace-nowrap">We Are </span>
-            <span className="relative -mt-[0.22em] inline-flex w-[clamp(16rem,64vw,58rem)] shrink-0 items-center opacity-10">
+            <span className="relative -mt-[0.22em] inline-flex w-[min(92vw,58rem)] shrink-0 items-center opacity-10 md:w-[clamp(16rem,64vw,58rem)]">
               <Image
                 src={CREMAIN_GOLD_LOGO}
                 alt=""
@@ -134,7 +134,7 @@ const Band: React.FC = () => {
               />
             </span>
           </h1>
-          <h1 className="absolute top-0 left-0 right-0 mx-auto flex flex-col items-center justify-center gap-[0.02em] text-[12vw] md:text-[14vw] lg:text-[16vw] font-heading font-semibold uppercase tracking-tighter leading-none pointer-events-none select-none">
+          <h1 className="absolute top-0 left-0 right-0 mx-auto flex flex-col items-center justify-center gap-[0.02em] text-[18vw] md:text-[14vw] lg:text-[16vw] font-heading font-semibold uppercase tracking-tighter leading-none pointer-events-none select-none">
             <span
               ref={textPart1Ref}
               style={{ clipPath: "inset(0% 100% 0% 0%)" }}
@@ -145,7 +145,7 @@ const Band: React.FC = () => {
             <span
               ref={textPart2Ref}
               style={{ clipPath: "inset(0% 100% 0% 0%)" }}
-              className="relative -mt-[0.22em] inline-flex w-[clamp(16rem,64vw,58rem)] shrink-0 items-center"
+              className="relative -mt-[0.22em] inline-flex w-[min(92vw,58rem)] shrink-0 items-center md:w-[clamp(16rem,64vw,58rem)]"
             >
               <Image
                 src={CREMAIN_GOLD_LOGO}
@@ -161,7 +161,7 @@ const Band: React.FC = () => {
       </section>
 
       {/* Intro Content */}
-      <section className="py-24 lg:py-32 px-6 lg:px-24" id="epk">
+      <section className="py-20 lg:py-32 px-4 sm:px-6 lg:px-24" id="epk">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24">
           <motion.div
             initial="hidden"
@@ -173,7 +173,7 @@ const Band: React.FC = () => {
             <span className="text-[10px] uppercase tracking-[0.3em] text-white/40 font-medium mb-6 block">
               About The Band
             </span>
-            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-heading font-medium uppercase leading-[0.95] italic">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-heading font-medium uppercase leading-[0.95] italic">
               <span style={{ color: "#7c550f" }}>Shadows</span> and
               <br />
               <span className="text-white/60">Soundscapes</span>
@@ -184,9 +184,9 @@ const Band: React.FC = () => {
             whileInView="visible"
             viewport={{ once: true, margin: "-10%" }}
             variants={containerVariants}
-            className="lg:w-1/2 flex flex-col gap-8 text-neutral-400 font-light leading-relaxed"
+            className="lg:w-1/2 flex flex-col gap-6 sm:gap-8 text-neutral-400 font-light leading-relaxed"
           >
-            <motion.p variants={itemVariants} className="text-lg">
+            <motion.p variants={itemVariants} className="text-base sm:text-lg">
               {BIO.main}
             </motion.p>
             <motion.p variants={itemVariants} className="text-neutral-500">
@@ -199,13 +199,13 @@ const Band: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-10%" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="max-w-7xl mx-auto mt-16 lg:mt-20 overflow-x-auto overflow-y-visible pb-6 lg:overflow-x-visible"
+          className="mx-auto mt-14 max-w-7xl overflow-x-auto overflow-y-hidden pb-4 lg:mt-20 lg:overflow-x-visible"
         >
-          <div className="flex min-w-max gap-4 pr-6 lg:min-w-0 lg:pr-0">
+          <div className="flex min-w-max gap-4 pr-4 lg:min-w-0 lg:pr-0">
             {INTRO_PHOTOS.map((src, index) => (
               <div
                 key={src}
-                className={`group relative w-[68vw] shrink-0 overflow-hidden bg-neutral-900/80 sm:w-[38vw] lg:w-1/5 ${
+                className={`relative w-[68vw] shrink-0 overflow-hidden bg-neutral-900/80 sm:w-[38vw] lg:w-1/5 ${
                   index % 2 === 0 ? "lg:translate-y-4" : "lg:-translate-y-4"
                 }`}
               >
@@ -214,11 +214,10 @@ const Band: React.FC = () => {
                     src={src}
                     alt={`Cremain atmosphere ${index + 1}`}
                     fill
-                    sizes="(max-width: 640px) 68vw, (max-width: 1024px) 38vw, 18vw"
-                    className="object-cover opacity-55 saturate-75 transition duration-700 group-hover:scale-105 group-hover:opacity-80"
+                    sizes="(max-width: 640px) 68vw, (max-width: 1024px) 38vw, 20vw"
+                    className="object-cover opacity-65 grayscale transition duration-500 hover:opacity-85 hover:grayscale-0"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-black/40" />
-                  <div className="absolute inset-0 border border-white/10" />
+                  <div className="absolute inset-0 bg-black/25" />
                 </div>
               </div>
             ))}
@@ -227,7 +226,7 @@ const Band: React.FC = () => {
       </section>
 
       {/* Lineup Description */}
-      <section className="py-20 lg:py-28 px-6 lg:px-24 bg-gradient-to-b from-neutral-900/20 to-neutral-900/40 border-y border-white/5">
+      <section className="py-16 lg:py-28 px-4 sm:px-6 lg:px-24 bg-gradient-to-b from-neutral-900/20 to-neutral-900/40 border-y border-white/5">
         <div className="max-w-5xl mx-auto">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
@@ -243,7 +242,7 @@ const Band: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-neutral-400 font-light leading-[1.8] text-lg lg:text-xl"
+            className="text-neutral-400 font-light leading-[1.8] text-base sm:text-lg lg:text-xl"
           >
             {LINEUP_DESCRIPTION}
           </motion.p>
@@ -251,7 +250,7 @@ const Band: React.FC = () => {
       </section>
 
       {/* Member Grid */}
-      <section className="py-24 lg:py-32 px-6 lg:px-24">
+      <section className="py-20 lg:py-32 px-4 sm:px-6 lg:px-24">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -268,7 +267,7 @@ const Band: React.FC = () => {
             </h3>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16">
             {bandMembers.map((member, i) => (
               <motion.div
                 key={i}
@@ -301,7 +300,7 @@ const Band: React.FC = () => {
 
                   {/* Corner anchored dynamic details - revealed on hover */}
                   <div
-                    className={`absolute inset-0 p-8 flex flex-col z-30 pointer-events-none
+                    className={`absolute inset-0 p-5 sm:p-8 flex flex-col z-30 pointer-events-none
                     ${i % 2 === 0 ? "items-end justify-start text-right" : "items-start justify-end text-left"}`}
                   >
                     <motion.p
@@ -362,7 +361,7 @@ const Band: React.FC = () => {
       </section>
 
       {/* Narrative Sections */}
-      <section className="py-24 lg:py-32 px-6 lg:px-24 bg-gradient-to-b from-black via-neutral-900/30 to-black">
+      <section className="py-20 lg:py-32 px-4 sm:px-6 lg:px-24 bg-gradient-to-b from-black via-neutral-900/30 to-black">
         <div className="max-w-7xl mx-auto flex flex-col gap-24 lg:gap-32">
           {/* Origins */}
           <motion.div
@@ -376,7 +375,7 @@ const Band: React.FC = () => {
               <h2 className="text-2xl lg:text-3xl font-heading uppercase tracking-[0.15em] text-white/80">
                 <span style={{ color: "#7c550f" }}>Origins</span> & Evolution
               </h2>
-              <p className="text-neutral-400 font-light leading-[1.8] text-lg">
+              <p className="text-neutral-400 font-light leading-[1.8] text-base sm:text-lg">
                 {BIO.origins}
               </p>
             </div>
@@ -404,7 +403,7 @@ const Band: React.FC = () => {
               <h2 className="text-2xl lg:text-3xl font-heading uppercase tracking-[0.15em] text-white/80">
                 Music & <span style={{ color: "#7c550f" }}>Influence</span>
               </h2>
-              <p className="text-neutral-400 font-light leading-[1.8] text-lg">
+              <p className="text-neutral-400 font-light leading-[1.8] text-base sm:text-lg">
                 {BIO.influence}
               </p>
             </div>

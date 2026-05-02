@@ -11,7 +11,7 @@ export const metadata = buildPageMetadata("/music");
 
 export default function Music() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-black">
+    <main className="min-h-screen w-full overflow-x-clip flex flex-col items-center justify-center bg-black">
       {/* --- MAIN CONTENT SECTIONS --- */}
         <MusicSection />
       

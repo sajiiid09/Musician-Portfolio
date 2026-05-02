@@ -37,31 +37,31 @@ export default function StorePage() {
     : PRODUCTS.filter(p => p.category === activeCategory);
 
   return (
-    <main className="bg-black min-h-screen text-white pt-32">
+    <main className="bg-black min-h-screen w-full overflow-x-clip text-white pt-24 md:pt-32">
 
-      <div className="max-w-[1920px] mx-auto px-6 md:px-12 mb-20">
+      <div className="max-w-[1920px] mx-auto px-4 sm:px-6 md:px-12 mb-20">
 
         {/* --- HEADER SECTION --- */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-16 md:mb-24">
 
           {/* Title Area */}
           <div>
             <span className="block text-xs font-medium uppercase tracking-[0.2em] text-white/60 mb-4">
               Store
             </span>
-            <h1 className="text-6xl md:text-8xl font-semibold uppercase leading-[0.9] tracking-tighter">
+            <h1 className="text-5xl sm:text-6xl md:text-8xl font-semibold uppercase leading-[0.9] tracking-tighter">
               Support <br /> The Music
             </h1>
           </div>
 
           {/* Categories Filter */}
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 lg:justify-end pt-4">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 lg:justify-end pt-2 lg:pt-4">
             {CATEGORIES.map((cat, index) => (
               <React.Fragment key={cat}>
                 {index > 0 && <span className="text-white/20 text-xl font-light">/</span>}
                 <button
                   onClick={() => setActiveCategory(cat)}
-                  className={`text-lg md:text-xl uppercase tracking-wide transition-colors ${
+                  className={`text-base sm:text-lg md:text-xl uppercase tracking-wide transition-colors ${
                     activeCategory === cat
                       ? 'text-white border-b border-white'
                       : 'text-white/40 hover:text-white'

@@ -6,7 +6,7 @@ import { CONTACT_INFO, SITE_CONFIG } from "@/lib/assets";
 
 export default function ContactPage() {
   return (
-    <main className="relative min-h-screen bg-black text-white flex flex-col">
+    <main className="relative min-h-screen w-full overflow-x-clip bg-black text-white flex flex-col">
       {/* --- BACKGROUND IMAGE LAYER --- */}
       <div className="fixed inset-0 z-0">
         <img
@@ -19,9 +19,9 @@ export default function ContactPage() {
       </div>
 
       {/* --- MAIN CONTENT --- */}
-      <div className="relative z-10 flex-grow flex items-center justify-center py-32 px-4 md:px-6">
+      <div className="relative z-10 flex-grow flex items-center justify-center py-24 md:py-32 px-4 md:px-6">
         {/* Contact Card Container */}
-        <div className="w-full max-w-6xl bg-black/50 backdrop-blur-sm border border-white/10 p-8 md:p-16 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 rounded-sm shadow-2xl">
+        <div className="w-full max-w-6xl bg-black/50 backdrop-blur-sm border border-white/10 p-6 sm:p-8 md:p-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 rounded-sm shadow-2xl">
           {/* --- LEFT COLUMN: Info --- */}
           <div className="flex flex-col justify-between h-full">
             {/* Header */}
@@ -29,7 +29,7 @@ export default function ContactPage() {
               <span className="block text-xs font-medium uppercase tracking-[0.2em] text-white/60 mb-2">
                 Reach Out
               </span>
-              <h1 className="text-6xl md:text-7xl font-display font-medium uppercase tracking-tighter leading-none">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-display font-medium uppercase tracking-tighter leading-none">
                 Contact
               </h1>
             </div>
